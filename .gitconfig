@@ -1,0 +1,14 @@
+[alias]
+	br = branch
+	ci = commit
+	co = checkout
+	df = diff
+	st = status
+[color]
+	ui = true
+[merge]
+	log = true
+	tool = vimdiff
+[user]
+	name = Bram Rohde
+	email = mailforbram@gmail.com
