@@ -14,6 +14,7 @@ Bundle 'gmarik/vundle'
 Bundle 'kien/ctrlp.vim'
 Bundle 'scrooloose/syntastic'
 Bundle 'scrooloose/nerdtree'
+Bundle 'Lokaltog/vim-powerline'
 Bundle 'tpope/vim-fugitive'
 Bundle 'airblade/vim-gitgutter'
 Bundle 'mattn/zencoding-vim'
@@ -89,18 +90,18 @@ set updatecount=30
 "Write file contents automatically when exitting buffer
 set autowrite
 
-"Change the statusline
-set statusline=%t\        "tail of the filename
-set statusline+=[%{strlen(&fenc)?&fenc:'none'},  "file encoding
-set statusline+=%{&ff}]\  "file format
-set statusline+=%h        "help file flag
-set statusline+=%m        "modified flag
-set statusline+=%r        "read only flag
-set statusline+=%y        "filetype
-set statusline+=%=        "left/right separator
-set statusline+=%c,       "cursor column
-set statusline+=%l/%L     "cursor line/total lines
-set statusline+=\ %P      "percent through file
+"Change the statusline, Disabled for now, trying powerline
+"set statusline=%t\        "tail of the filename
+"set statusline+=[%{strlen(&fenc)?&fenc:'none'},  "file encoding
+"set statusline+=%{&ff}]\  "file format
+"set statusline+=%h        "help file flag
+"set statusline+=%m        "modified flag
+"set statusline+=%r        "read only flag
+"set statusline+=%y        "filetype
+"set statusline+=%=        "left/right separator
+"set statusline+=%c,       "cursor column
+"set statusline+=%l/%L     "cursor line/total lines
+"set statusline+=\ %P      "percent through file
 
 "Put swap files in one directory
 set directory^=$HOME/.vim/_swap//
