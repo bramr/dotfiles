@@ -7,7 +7,7 @@ set nocompatible
 set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
 
-"let Vundle manage Vundle, required! 
+"let Vundle manage Vundle, required!
 Bundle 'gmarik/vundle'
 
 "My Bundles
@@ -30,12 +30,13 @@ filetype plugin on
 filetype indent on
 
 "Use light colorscheme for gui, but a good dark otherwise
-if has("gui_running") 
+if has("gui_running")
   set background=dark
   colorscheme molokai
 else
+  set t_Co=256
   set background=dark
-  colorscheme noctu
+  colorscheme molokai "noctu (for 16 color terms)
 end
 
 "Syntax hl on
@@ -55,12 +56,12 @@ set ruler
 set wildmenu
 set wildmode=list:longest,full
 
-"setup default whitespaces
+"Setup default whitespaces
 set noexpandtab
 set tabstop=4
 set shiftwidth=4
 set softtabstop=4
-set listchars=tab:>-,eol:^,trail:_
+set listchars=tab:▸-,eol:^,trail:_
 
 set noeol
 
@@ -78,7 +79,7 @@ set fileformat=unix
 "use incremental search
 set incsearch
 
-" remember last 500 commands
+" Remember last 500 commands
 set history=500
 
 " Scroll 3 lines ahead
@@ -87,21 +88,31 @@ set scrolloff=3
 " Write to swap after each 30 keystroaks
 set updatecount=30
 
+" Show trailing whitespace
+highlight ExtraWhitespace ctermbg=red guibg=red
+match ExtraWhitespace /\s\+$/
+
 "Write file contents automatically when exitting buffer
 set autowrite
 
+" Remove trailing whitespaces and ^M chars
+autocmd FileType c,cpp,java,php,javascript,python,ruby,twig,xml,yml,phtml,vim autocmd BufWritePre <buffer> :call setline(1,map(getline(1,"$"),'substitute(v:val,"\\s\\+$","","")'))
+
 "Change the statusline, Disabled for now, trying powerline
-"set statusline=%t\        "tail of the filename
-"set statusline+=[%{strlen(&fenc)?&fenc:'none'},  "file encoding
-"set statusline+=%{&ff}]\  "file format
-"set statusline+=%h        "help file flag
-"set statusline+=%m        "modified flag
-"set statusline+=%r        "read only flag
-"set statusline+=%y        "filetype
-"set statusline+=%=        "left/right separator
-"set statusline+=%c,       "cursor column
-"set statusline+=%l/%L     "cursor line/total lines
-"set statusline+=\ %P      "percent through file
+if has("statusline")
+  set statusline=%t\        "tail of the filename
+  set statusline+=%{fugitive#statusline()}
+  set statusline+=[%{strlen(&fenc)?&fenc:'none'},  "file encoding
+  set statusline+=%{&ff}]\  "file format
+  set statusline+=%h        "help file flag
+  set statusline+=%m        "modified flag
+  set statusline+=%r        "read only flag
+  set statusline+=%y        "filetype
+  set statusline+=%=        "left/right separator
+  set statusline+=%c,       "cursor column
+  set statusline+=%l/%L     "cursor line/total lines
+  set statusline+=\ %P      "percent through file
+end
 
 "Put swap files in one directory
 set directory^=$HOME/.vim/_swap//
@@ -114,11 +125,13 @@ if has("win32") || has("win64")
   set lines=34
   set directory^=$HOME/vimfiles/_swap//
 end
-
-if has("mac")
-  set guifont=Menlo:h13
+if has("gui_macvim")
+  set guifont=Menlo:h14
   set columns=95
   set lines=34
+  " Swipe to move between bufers
+  map <SwipeLeft> :bprev<CR>
+  map <SwipeRight> :bnext<CR>
 end
 
 "Show matches, jump 300ms
@@ -178,10 +191,15 @@ inoremap <C-f> <C-x><C-O>
 inoremap <C-d> <C-x><C-n>
 
 " map CTRL-V to piece-wise copying of the line above the current one
-imap <C-V> a<esc>kywgi<esc>Pla<bs>
+imap <C-v> a<esc>kywgi<esc>Pla<bs>
+" select all
+map <C-a> ggVG
 
 " map <Leader>f to display all lines with keyword under cursor and ask which one to jump to
 nmap <Leader>f [I:let nr = input("Which one: ")<Bar>exe "normal " . nr ."[\t"<CR>
+
+" sudo write file
+cmap w!! w !sudo tee > /dev/null %
 
 "Quickly set a file to my preferred format
 nmap <Leader>e :setl fileencoding=utf-8 fileformat=unix<CR>
@@ -204,18 +222,22 @@ nmap <Leader>7 :setlocal spell spelllang=en_us<CR>:setlocal spell<CR>
 nmap <Leader>8 :setlocal spell spelllang=nl<CR>:setlocal spell<CR>
 nmap <Leader>9 :setlocal spell spelllang=en_us<CR>:setlocal nospell<CR>
 
-
 "syntastic syntax checking
 let g:syntastic_check_on_open=0
 let g:syntastic_enable_signs=1
 let g:syntastic_phpcs_disable=1
 
-"Mappings for CtrlP plugin 
+"Mappings for CtrlP plugin
 noremap <Leader>t :CtrlP<CR>
 noremap <Leader>r :CtrlPBuffer<CR>
 
 "Show/Hide NerdTree
 nmap <silent><F7> :NERDTreeToggle<CR>
 
-
+"Fugitive mappings
+nnoremap <Leader>g :Git
+nnoremap <Leader>ga :Gwrite<CR>
+nnoremap <Leader>gd :Gdiff<CR>
+nnoremap <Leader>gl :Glog<CR>
+nnoremap <Leader>gs :Gstatus<CR>
 
