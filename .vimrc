@@ -228,6 +228,7 @@ let g:syntastic_enable_signs=1
 let g:syntastic_phpcs_disable=1
 
 "Mappings for CtrlP plugin
+let g:ctrlp_working_path_mode = ''
 noremap <Leader>t :CtrlP<CR>
 noremap <Leader>r :CtrlPBuffer<CR>
 
