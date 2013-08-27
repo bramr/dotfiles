@@ -22,7 +22,7 @@ Bundle 'shawncplus/phpcomplete.vim'
 Bundle 'StanAngeloff/php.vim'
 
 "Colorscheme bundles
-Bundle 'tomasr/molokai'
+Bundle 'bramr/molokai'
 Bundle 'noahfrederick/vim-noctu'
 
 " Enable loading filetype and indentation plugins
