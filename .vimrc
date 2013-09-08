@@ -199,7 +199,7 @@ map <C-a> ggVG
 nmap <Leader>f [I:let nr = input("Which one: ")<Bar>exe "normal " . nr ."[\t"<CR>
 
 " sudo write file
-cmap w!! w !sudo tee > /dev/null %
+cmap w!! w !sudo tee > /dev/null %<CR>
 
 "Quickly set a file to my preferred format
 nmap <Leader>e :setl fileencoding=utf-8 fileformat=unix<CR>
