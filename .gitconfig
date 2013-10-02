@@ -4,6 +4,8 @@
 	co = checkout
 	df = diff
 	st = status
+[core]
+	excludesfile = ~/.gitignore
 [color]
 	ui = true
 [merge]
