@@ -35,6 +35,7 @@ if has("gui_running")
   colorscheme molokai
 else
   set t_Co=256
+  set term=screen-256color
   set background=dark
   colorscheme molokai "noctu (for 16 color terms)
 end
@@ -173,16 +174,16 @@ nmap <Space> 10j
 vnoremap > >gv
 vnoremap < <gv
 
-"Switch windows more easily
-map <C-j> <C-w>j
-map <C-k> <C-w>k
-map <C-h> <C-w>h
-map <C-l> <C-w>l
+"Make tab help with panes managment
+nmap <Tab> <C-w>
+nmap <Tab><Tab> <C-w> w
+nmap <S-Tab> :split<CR>
+nmap <Leader><Tab> :vsplit<CR>
+
+set splitbelow
+set splitright
 
 "easy splitting and back to 1 window
-map <C-i> :vsplit<CR>
-map <C-u> :split<CR>
-map <C-o> <C-w>o
 map <C-p> :setl lines=60 columns=272<CR>
 
 "Use Ctrl-F for omni completion
@@ -230,6 +231,7 @@ let g:syntastic_phpcs_disable=1
 "Mappings for CtrlP plugin
 let g:ctrlp_working_path_mode = ''
 noremap <Leader>t :CtrlP<CR>
+noremap <Leader>T :CtrlPClearAllCaches<CR>
 noremap <Leader>r :CtrlPBuffer<CR>
 
 "Show/Hide NerdTree
