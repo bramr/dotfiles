@@ -19,6 +19,7 @@ Bundle 'tpope/vim-fugitive'
 Bundle 'airblade/vim-gitgutter'
 Bundle 'mattn/zencoding-vim'
 Bundle 'shawncplus/phpcomplete.vim'
+Bundle 'evidens/vim-twig'
 Bundle 'StanAngeloff/php.vim'
 
 "Colorscheme bundles
@@ -71,7 +72,7 @@ set spell spelllang=en_us
 set nospell
 
 "Yank to OS clipboard
-set clipboard+=unnamed
+set clipboard=unnamed
 
 "default file encoding and newline format
 set encoding=utf-8
