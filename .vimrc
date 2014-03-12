@@ -21,6 +21,7 @@ Bundle 'mattn/zencoding-vim'
 Bundle 'shawncplus/phpcomplete.vim'
 Bundle 'evidens/vim-twig'
 Bundle 'StanAngeloff/php.vim'
+Bundle 'joonty/vdebug'
 
 "Colorscheme bundles
 Bundle 'bramr/molokai'
@@ -128,7 +129,7 @@ if has("win32") || has("win64")
   set directory^=$HOME/vimfiles/_swap//
 end
 if has("gui_macvim")
-  set guifont=Menlo:h14
+  set guifont=Inconsolata:h16
   set columns=95
   set lines=34
   " Swipe to move between bufers
@@ -206,12 +207,6 @@ cmap w!! w !sudo tee > /dev/null %<CR>
 "Quickly set a file to my preferred format
 nmap <Leader>e :setl fileencoding=utf-8 fileformat=unix<CR>
 
-" use <F5> to toggle listing invisible chars
-nmap <silent> <F5> :set list!<CR>
-
-" use <F6> to toggle line numbers
-nmap <silent> <F6> :set number!<CR>
-
 " use make command
 nmap <Leader>m :make<CR>
 
@@ -220,9 +215,15 @@ nmap <Leader>1 [s
 nmap <Leader>2 ]s
 nmap <Leader>3 z=
 nmap <Leader>4 ]sz=
-nmap <Leader>7 :setlocal spell spelllang=en_us<CR>:setlocal spell<CR>
 nmap <Leader>8 :setlocal spell spelllang=nl<CR>:setlocal spell<CR>
-nmap <Leader>9 :setlocal spell spelllang=en_us<CR>:setlocal nospell<CR>
+nmap <Leader>9 :setlocal spell spelllang=en_us<CR>:setlocal spell<CR>
+nmap <Leader>0 :setlocal spell spelllang=en_us<CR>:setlocal nospell<CR>
+" Toggle listing invisible chars
+nmap <silent> <Leader>5 :set list!<CR>
+" Toggle line numbers
+nmap <silent> <Leader>6 :set number!<CR>
+"Show/Hide NerdTree
+nmap <silent> <Leader>7 :NERDTreeToggle<CR>
 
 "syntastic syntax checking
 let g:syntastic_check_on_open=0
@@ -234,9 +235,6 @@ let g:ctrlp_working_path_mode = ''
 noremap <Leader>t :CtrlP<CR>
 noremap <Leader>T :CtrlPClearAllCaches<CR>
 noremap <Leader>r :CtrlPBuffer<CR>
-
-"Show/Hide NerdTree
-nmap <silent><F7> :NERDTreeToggle<CR>
 
 "Fugitive mappings
 nnoremap <Leader>g :Git
