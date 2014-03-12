@@ -11,6 +11,8 @@
 [merge]
 	log = true
 	tool = vimdiff
+[push]
+	default = current
 [user]
 	name = Bram Rohde
-	email = mailforbram@gmail.com
+	email = bramr@outlook.com
