@@ -129,7 +129,7 @@ if has("win32") || has("win64")
   set directory^=$HOME/vimfiles/_swap//
 end
 if has("gui_macvim")
-  set guifont=Inconsolata:h16
+  set guifont=Inconsolata:h15
   set columns=95
   set lines=34
   " Swipe to move between bufers
@@ -233,7 +233,7 @@ let g:syntastic_phpcs_disable=1
 "Mappings for CtrlP plugin
 let g:ctrlp_working_path_mode = ''
 noremap <Leader>t :CtrlP<CR>
-noremap <Leader>T :CtrlPClearAllCaches<CR>
+noremap <Leader>T :CtrlPClearAllCaches<CR>:CtrlP<CR>
 noremap <Leader>r :CtrlPBuffer<CR>
 
 "Fugitive mappings
