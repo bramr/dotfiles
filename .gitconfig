@@ -1,9 +1,11 @@
 [alias]
+	aa = add --all
 	br = branch
 	ci = commit
 	co = checkout
 	df = diff
 	st = status
+	uc = checkout --
 [core]
 	excludesfile = ~/.gitignore
 [color]
