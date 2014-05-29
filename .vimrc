@@ -17,11 +17,19 @@ Bundle 'scrooloose/nerdtree'
 Bundle 'Lokaltog/vim-powerline'
 Bundle 'tpope/vim-fugitive'
 Bundle 'airblade/vim-gitgutter'
-Bundle 'mattn/zencoding-vim'
+Bundle 'mattn/emmet-vim'
 Bundle 'shawncplus/phpcomplete.vim'
 Bundle 'evidens/vim-twig'
 Bundle 'StanAngeloff/php.vim'
-Bundle 'joonty/vdebug'
+Bundle 'pangloss/vim-javascript'
+Bundle 'Raimondi/delimitMate'
+
+"Only configured to work on macvim
+if has("gui_macvim")
+  Bundle 'joonty/vdebug'
+  Bundle 'Valloric/YouCompleteMe'
+  Bundle 'marijnh/tern_for_vim'
+endif
 
 "Colorscheme bundles
 Bundle 'bramr/molokai'
@@ -225,10 +233,16 @@ nmap <silent> <Leader>6 :set number!<CR>
 "Show/Hide NerdTree
 nmap <silent> <Leader>7 :NERDTreeToggle<CR>
 
+"
+" Bundle settings
+"
+
 "syntastic syntax checking
 let g:syntastic_check_on_open=0
 let g:syntastic_enable_signs=1
 let g:syntastic_phpcs_disable=1
+"delimitmate expand on return
+let delimitMate_expand_cr=1
 
 "Mappings for CtrlP plugin
 let g:ctrlp_working_path_mode = ''
