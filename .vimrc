@@ -29,11 +29,13 @@ if has("gui_macvim")
   Bundle 'joonty/vdebug'
   Bundle 'Valloric/YouCompleteMe'
   Bundle 'marijnh/tern_for_vim'
+  Bundle 'rizzatti/dash.vim'
 endif
 
 "Colorscheme bundles
 Bundle 'bramr/molokai'
 Bundle 'noahfrederick/vim-noctu'
+Bundle 'vim-scripts/proton'
 
 " Enable loading filetype and indentation plugins
 filetype plugin on
@@ -80,9 +82,10 @@ set noeol
 set spell spelllang=en_us
 set nospell
 
-"Yank to OS clipboard
-set clipboard=unnamed
-
+"Yank to OS clipboard when not running tmux
+if $TMUX == ''
+    set clipboard+=unnamed
+endif
 "default file encoding and newline format
 set encoding=utf-8
 set fileformat=unix
@@ -257,3 +260,6 @@ nnoremap <Leader>gd :Gdiff<CR>
 nnoremap <Leader>gl :Glog<CR>
 nnoremap <Leader>gs :Gstatus<CR>
 
+"Mapping for Dash
+nnoremap <Leader>/ :Dash
+nnoremap <Leader>? :Dash<CR>
