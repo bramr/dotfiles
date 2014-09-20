@@ -30,6 +30,7 @@ if has("gui_macvim")
   Bundle 'Valloric/YouCompleteMe'
   Bundle 'marijnh/tern_for_vim'
   Bundle 'rizzatti/dash.vim'
+  Bundle 'fatih/vim-go'
 endif
 
 "Colorscheme bundles
