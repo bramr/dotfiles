@@ -23,15 +23,13 @@ Bundle 'evidens/vim-twig'
 Bundle 'StanAngeloff/php.vim'
 Bundle 'pangloss/vim-javascript'
 Bundle 'Raimondi/delimitMate'
-
-"Only configured to work on macvim
-if has("gui_macvim")
-  Bundle 'joonty/vdebug'
-  Bundle 'Valloric/YouCompleteMe'
-  Bundle 'marijnh/tern_for_vim'
-  Bundle 'rizzatti/dash.vim'
-  Bundle 'fatih/vim-go'
-endif
+Bundle 'joonty/vdebug'
+Bundle 'Valloric/YouCompleteMe'
+Bundle 'marijnh/tern_for_vim'
+Bundle 'rizzatti/dash.vim'
+Bundle 'fatih/vim-go'
+Bundle 'hhvm/vim-hack'
+Bundle 'mxw/vim-jsx'
 
 "Colorscheme bundles
 Bundle 'bramr/molokai'
