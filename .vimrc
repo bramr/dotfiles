@@ -243,6 +243,7 @@ nmap <silent> <Leader>7 :NERDTreeToggle<CR>
 let g:syntastic_check_on_open=0
 let g:syntastic_enable_signs=1
 let g:syntastic_phpcs_disable=1
+let g:syntastic_javascript_checkers=['jsxhint']
 "delimitmate expand on return
 let delimitMate_expand_cr=1
 
