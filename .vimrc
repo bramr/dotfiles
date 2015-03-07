@@ -33,7 +33,8 @@ call vundle#rc()
 Bundle 'gmarik/vundle'
 
 "My Bundles
-Bundle 'kien/ctrlp.vim'
+Bundle 'Shougo/vimproc.vim'
+Bundle 'Shougo/unite.vim'
 Bundle 'scrooloose/syntastic'
 Bundle 'scrooloose/nerdtree'
 Bundle 'Lokaltog/vim-powerline'
@@ -50,7 +51,7 @@ Bundle 'Valloric/YouCompleteMe'
 Bundle 'marijnh/tern_for_vim'
 Bundle 'rizzatti/dash.vim'
 Bundle 'fatih/vim-go'
-Bundle 'hhvm/vim-hack'
+"Bundle 'hhvm/vim-hack'
 Bundle 'mxw/vim-jsx'
 
 "Colorscheme bundles
@@ -269,11 +270,16 @@ let g:syntastic_javascript_checkers=['jsxhint']
 "delimitmate expand on return
 let delimitMate_expand_cr=1
 
-"Mappings for CtrlP plugin
-let g:ctrlp_working_path_mode = ''
-noremap <Leader>t :CtrlP<CR>
-noremap <Leader>T :CtrlPClearAllCaches<CR>:CtrlP<CR>
-noremap <Leader>r :CtrlPBuffer<CR>
+"Mappings for Unite
+let g:unite_source_histroy_yank_enable=1
+call unite#filters#matcher_default#use(['matcher_fuzzy'])
+call unite#filters#sorter_default#use(['sorter_rank'])
+
+nnoremap <leader>t :<C-u>Unite -no-split -ignorecase -buffer-name=files -start-insert file_rec/async:!<cr>
+nnoremap <leader>T :<C-u>Unite -no-split -ignorecase -buffer-name=files -start-insert file<cr>
+nnoremap <leader>r :<C-u>Unite -no-split -sync -ignorecase -buffer-name=buffers buffer<cr>
+nnoremap <leader>R :<C-u>Unite -no-split -sync -ignorecase -buffer-name=buffers -start-insert buffer<cr>
+nnoremap <leader>y :<C-u>Unite -buffer-name=yanks history/yank<cr>
 
 "Fugitive mappings
 nnoremap <Leader>g :Git
