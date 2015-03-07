@@ -46,6 +46,7 @@ Bundle 'evidens/vim-twig'
 Bundle 'StanAngeloff/php.vim'
 Bundle 'pangloss/vim-javascript'
 Bundle 'Raimondi/delimitMate'
+Bundle 'm2mdas/phpcomplete-extended'
 Bundle 'joonty/vdebug'
 Bundle 'Valloric/YouCompleteMe'
 Bundle 'marijnh/tern_for_vim'
@@ -133,6 +134,9 @@ set autowrite
 
 " Remove trailing whitespaces and ^M chars
 autocmd FileType c,cpp,java,php,javascript,python,ruby,twig,xml,yml,phtml,vim autocmd BufWritePre <buffer> :call setline(1,map(getline(1,"$"),'substitute(v:val,"\\s\\+$","","")'))
+
+autocmd FileType php setlocal omnifunc=phpcomplete_extended#CompletePHP
+autocmd CompleteDone * pclose
 
 "Change the statusline, Disabled for now, trying powerline
 if has("statusline")
@@ -275,11 +279,15 @@ let g:unite_source_histroy_yank_enable=1
 call unite#filters#matcher_default#use(['matcher_fuzzy'])
 call unite#filters#sorter_default#use(['sorter_rank'])
 
-nnoremap <leader>t :<C-u>Unite -no-split -ignorecase -buffer-name=files -start-insert file_rec/async:!<cr>
-nnoremap <leader>T :<C-u>Unite -no-split -ignorecase -buffer-name=files -start-insert file<cr>
-nnoremap <leader>r :<C-u>Unite -no-split -sync -ignorecase -buffer-name=buffers buffer<cr>
-nnoremap <leader>R :<C-u>Unite -no-split -sync -ignorecase -buffer-name=buffers -start-insert buffer<cr>
-nnoremap <leader>y :<C-u>Unite -buffer-name=yanks history/yank<cr>
+nnoremap <Leader>t :<C-u>Unite -no-split -ignorecase -buffer-name=files -start-insert file_rec/async:!<CR>
+nnoremap <Leader>T :<C-u>Unite -no-split -ignorecase -buffer-name=files -start-insert file<CR>
+nnoremap <Leader>r :<C-u>Unite -no-split -sync -ignorecase -buffer-name=buffers buffer<CR>
+nnoremap <Leader>R :<C-u>Unite -no-split -sync -ignorecase -buffer-name=buffers -start-insert buffer<CR>
+nnoremap <Leader>y :<C-u>Unite -buffer-name=yanks history/yank<CR>
+
+"Composer location
+let g:phpcomplete_index_composer_command="php /usr/local/bin/composer.phar"
+nnoremap <Leader>pc :PHPCompleteExtendedClearIndexCache<CR>
 
 "Fugitive mappings
 nnoremap <Leader>g :Git
