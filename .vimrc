@@ -4,6 +4,28 @@
 "vImproved
 set nocompatible
 
+filetype off
+set modelines=0
+
+" On Windows, also use: '.vim' instead of: 'vimfiles'
+if has('win32') || has('win64')
+  set runtimepath=$HOME/.vim,$VIM/vimfiles,$VIMRUNTIME,$VIM/vimfiles/after,$VIMHOME/.vim/after
+endif
+
+" Install vundle from github if it's not available
+let vundle_readme=expand('~/.vim/bundle/vundle/README.md')
+if !filereadable(vundle_readme)
+    echo "Installing Vundle..."
+    if has('win32') || has('win64')
+        silent cd ~
+        silent !mkdir .vim\bundle
+        silent !git clone https://github.com/gmarik/vundle .vim/bundle/vundle
+    else
+        silent !mkdir -p ~/.vim/bundle
+        silent !git clone https://github.com/gmarik/vundle ~/.vim/bundle/vundle
+    endif
+endif
+
 set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
 

@@ -1,5 +1,5 @@
 #!/bin/bash
-ln -s $(pwd)/.vim ~/.vim
+mkdir ~/.vim
 ln -s $(pwd)/.vimrc ~/.vimrc
 ln -s $(pwd)/.gitconfig ~/.gitconfig
 ln -s $(pwd)/.gitignore ~/.gitignore
