@@ -37,7 +37,7 @@ Bundle 'Shougo/vimproc.vim'
 Bundle 'kien/ctrlp.vim'
 Bundle 'scrooloose/syntastic'
 Bundle 'scrooloose/nerdtree'
-Bundle 'Lokaltog/vim-powerline'
+Bundle 'bling/vim-airline'
 Bundle 'tpope/vim-fugitive'
 Bundle 'airblade/vim-gitgutter'
 Bundle 'mattn/emmet-vim'
@@ -138,7 +138,7 @@ autocmd FileType c,cpp,java,php,javascript,python,ruby,twig,xml,yml,phtml,vim au
 autocmd FileType php setlocal omnifunc=phpcomplete_extended#CompletePHP
 autocmd CompleteDone * pclose
 
-"Change the statusline, Disabled for now, trying powerline
+"Change the statusline, normally overwritten by airline.vim
 if has("statusline")
   set statusline=%t\        "tail of the filename
   set statusline+=%{fugitive#statusline()}
@@ -273,6 +273,14 @@ let g:syntastic_phpcs_disable=1
 let g:syntastic_javascript_checkers=['jsxhint']
 "delimitmate expand on return
 let delimitMate_expand_cr=1
+
+"Ailine config
+let g:airline_theme='simple'
+let g:airline_left_sep=''
+let g:airline_right_sep=''
+let g:airline_symbols = {}
+let g:airline_symbols.linenr='␤'
+let g:airline_symbols.branch='⎇'
 
 "Mapping for ctrlp
 let g:ctrlp_working_path_mode=''
