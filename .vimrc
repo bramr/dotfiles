@@ -42,7 +42,7 @@ Bundle 'tpope/vim-fugitive'
 Bundle 'airblade/vim-gitgutter'
 Bundle 'mattn/emmet-vim'
 Bundle 'shawncplus/phpcomplete.vim'
-Bundle 'evidens/vim-twig'
+Bundle "lepture/vim-jinja"
 Bundle 'StanAngeloff/php.vim'
 Bundle 'pangloss/vim-javascript'
 Bundle 'Raimondi/delimitMate'
@@ -92,6 +92,10 @@ set ruler
 set wildmenu
 set wildmode=list:longest,full
 
+" Ignore rules for Vim and plug-ins
+set wildignore+=*/.git/*,*/.hg/*,*/.svn/*
+set wildignorecase
+
 "Setup default whitespaces
 set noexpandtab
 set tabstop=4
@@ -133,7 +137,7 @@ match ExtraWhitespace /\s\+$/
 set autowrite
 
 " Remove trailing whitespaces and ^M chars
-autocmd FileType c,cpp,java,php,javascript,python,ruby,twig,xml,yml,phtml,vim autocmd BufWritePre <buffer> :call setline(1,map(getline(1,"$"),'substitute(v:val,"\\s\\+$","","")'))
+autocmd FileType c,cpp,css,java,php,javascript,python,ruby,jinja,twig,xml,yml,phtml,vim autocmd BufWritePre <buffer> :call setline(1,map(getline(1,"$"),'substitute(v:val,"\\s\\+$","","")'))
 
 autocmd FileType php setlocal omnifunc=phpcomplete_extended#CompletePHP
 autocmd CompleteDone * pclose
@@ -192,11 +196,16 @@ au BufRead,BufNewFile {Gemfile,Rakefile,Vagrantfile,THorfile,config.ru} set ft=r
 au BufRead,BufNewFile *.json set ft=javascript
 au BufRead,BufNewFile *.ctp set ft=php
 
+au BufRead,BufNewFile *.twig set ft=jinja
+
 au FileType html setl textwidth=120 softtabstop=2 shiftwidth=2 tabstop=2 expandtab
 au FileType php setl textwidth=120 softtabstop=4 shiftwidth=4 tabstop=4 expandtab
 au FileType ruby setl softtabstop=2 tabstop=2 expandtab
 au FileType python setl softtabstop=4 shiftwidth=4 tabstop=4 textwidth=90 expandtab
 au FileType javascript setl softtabstop=2 shiftwidth=2 tabstop=2 textwidth=90 expandtab
+au FileType go setl textwidth=120 softtabstop=4 shiftwidth=4 tabstop=4 noexpandtab
+au FileType jinja setl textwidth=120 softtabstop=4 shiftwidth=4 tabstop=4 expandtab
+au FileType twig setl textwidth=120 softtabstop=4 shiftwidth=4 tabstop=4 expandtab
 au FileType vim setl softtabstop=2 shiftwidth=2 tabstop=2 textwidth=90 expandtab
 
 "
@@ -288,6 +297,10 @@ noremap <Leader>t :CtrlP<CR>
 noremap <Leader>T :CtrlPClearAllCaches<CR>:CtrlP<CR>
 noremap <Leader>r :CtrlPBuffer<CR>
 
+"Mappings for to diff two buffers
+nnoremap <Leader>d :NERDTreeClose<CR>:windo diffthis<CR>
+nnoremap <Leader>D :windo diffoff<CR>
+
 "Composer location
 let g:phpcomplete_index_composer_command="php /usr/local/bin/composer.phar"
 nnoremap <Leader>pc :PHPCompleteExtendedClearIndexCache<CR>
@@ -297,6 +310,7 @@ nnoremap <Leader>g :Git
 nnoremap <Leader>ga :Gwrite<CR>
 nnoremap <Leader>gd :Gdiff<CR>
 nnoremap <Leader>gl :Glog<CR>
+nnoremap <Leader>gr :Gread<CR>
 nnoremap <Leader>gs :Gstatus<CR>
 
 "Mapping for Dash
