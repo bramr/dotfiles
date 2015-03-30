@@ -50,10 +50,13 @@ Bundle 'm2mdas/phpcomplete-extended'
 Bundle 'joonty/vdebug'
 Bundle 'Valloric/YouCompleteMe'
 Bundle 'marijnh/tern_for_vim'
-Bundle 'rizzatti/dash.vim'
 Bundle 'fatih/vim-go'
 "Bundle 'hhvm/vim-hack'
 Bundle 'mxw/vim-jsx'
+
+if has('mac')
+  Bundle 'rizzatti/dash.vim'
+endif
 
 "Colorscheme bundles
 Bundle 'bramr/molokai'
@@ -313,6 +316,8 @@ nnoremap <Leader>gl :Glog<CR>
 nnoremap <Leader>gr :Gread<CR>
 nnoremap <Leader>gs :Gstatus<CR>
 
-"Mapping for Dash
-nnoremap <Leader>/ :Dash
-nnoremap <Leader>? :Dash<CR>
+if has('mac')
+  "Mapping for Dash
+  nnoremap <Leader>/ :Dash
+  nnoremap <Leader>? :Dash<CR>
+endif
