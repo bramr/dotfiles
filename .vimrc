@@ -53,6 +53,7 @@ Bundle 'marijnh/tern_for_vim'
 Bundle 'fatih/vim-go'
 "Bundle 'hhvm/vim-hack'
 Bundle 'mxw/vim-jsx'
+Bundle 'freitass/todo.txt-vim'
 
 if has('mac')
   Bundle 'rizzatti/dash.vim'
