@@ -74,7 +74,7 @@ if has("gui_running")
   colorscheme molokai
 else
   set t_Co=256
-  set term=screen-256color
+"  set term=screen-256color
   set background=dark
   colorscheme molokai "noctu (for 16 color terms)
 end
