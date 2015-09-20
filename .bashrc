@@ -3,9 +3,14 @@
 alias doc='docker'
 alias dom='docker-machine'
 
-alias ll="ls -lv --grooup-directories-first"
+alias ll="ls -lvG"
 alias df='df -H'
 alias du='du -h -d 1'
+
+# machine dependent stuff/ environment vars
+if [ -f ~/.bash_local.sh ]; then
+	    . ~/.bash_local.sh
+fi
 
 function dockup {
 	if [ -z "$1" ]; then
