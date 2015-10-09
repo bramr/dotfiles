@@ -51,9 +51,10 @@ Bundle 'joonty/vdebug'
 Bundle 'Valloric/YouCompleteMe'
 Bundle 'marijnh/tern_for_vim'
 Bundle 'fatih/vim-go'
-"Bundle 'hhvm/vim-hack'
 Bundle 'mxw/vim-jsx'
 Bundle 'freitass/todo.txt-vim'
+Bundle 'SirVer/ultisnips'
+Bundle 'bramr/vim-snippets'
 
 if has('mac')
   Bundle 'rizzatti/dash.vim'
@@ -295,6 +296,13 @@ let g:airline_right_sep=''
 let g:airline_symbols = {}
 let g:airline_symbols.linenr='␤'
 let g:airline_symbols.branch='⎇'
+
+"Snippets config
+let g:UltiSnipsExpandTrigger="<C-e>"
+let g:UltiSnipsJumpForwardTrigger="<C-b>"
+let g:UltiSnipsJumpBackwardTrigger="<C-z>"
+
+let g:UltiSnipsEditSplit="vertical"
 
 "Mapping for ctrlp
 let g:ctrlp_working_path_mode=''
