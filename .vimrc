@@ -55,6 +55,7 @@ Bundle 'mxw/vim-jsx'
 Bundle 'freitass/todo.txt-vim'
 Bundle 'SirVer/ultisnips'
 Bundle 'bramr/vim-snippets'
+Bundle 'chikamichi/mediawiki.vim'
 
 if has('mac')
   Bundle 'rizzatti/dash.vim'
