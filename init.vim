@@ -47,6 +47,9 @@ Plug 'ternjs/tern_for_vim', {'do': 'npm install', 'for': 'javascript'}
 "ruby
 Plug 'vim-ruby/vim-ruby', {'for': 'ruby'}
 
+"swift
+Plug 'keith/swift.vim'
+
 "minor
 Plug 'vim-scripts/nginx.vim'
 Plug 'honza/dockerfile.vim'
@@ -188,6 +191,7 @@ autocmd CompleteDone * pclose
 "
 "set <Leader> key
 let mapleader = ","
+let maplocalleader= ","
 
 "Move up down with space
 nmap <Leader><Space> 10k
