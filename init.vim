@@ -44,6 +44,8 @@ Plug 'fatih/vim-go', {'for': 'go'}
 "javascript
 Plug 'pangloss/vim-javascript', {'for': 'javascript'}
 Plug 'ternjs/tern_for_vim', {'do': 'npm install', 'for': 'javascript'}
+Plug 'mxw/vim-jsx', {'for': 'javascript'}
+Plug 'pmsorhaindo/syntastic-local-eslint.vim', {'for': 'javascript'}
 
 "ruby
 Plug 'vim-ruby/vim-ruby', {'for': 'ruby'}
@@ -266,7 +268,7 @@ let g:syntastic_check_on_open=0
 let g:syntastic_enable_signs=1
 let g:syntastic_php_phpcs_args="--standard=PSR1,PSR2"
 let g:syntastic_php_checkers = ['php','phpcs']
-let g:syntastic_javascript_checkers=['jsxhint']
+let g:syntastic_javascript_checkers=['eslint']
 "delimitmate expand on return
 let delimitMate_expand_cr=1
 
@@ -284,6 +286,9 @@ let g:UltiSnipsJumpForwardTrigger="<C-b>"
 let g:UltiSnipsJumpBackwardTrigger="<C-z>"
 
 let g:UltiSnipsEditSplit="vertical"
+
+"JSX in js files
+let g:jsx_ext_required = 0
 
 "Mapping for ctrlp
 let g:ctrlp_working_path_mode=''
