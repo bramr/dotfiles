@@ -10,7 +10,8 @@ call plug#begin('~/.config/nvim/plugged')
 "Navigation
 Plug 'kien/ctrlp.vim'
 Plug 'scrooloose/nerdtree'
-Plug 'bling/vim-airline'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
 
 "General coding
 Plug 'Raimondi/delimitMate'
