@@ -42,10 +42,10 @@ Plug 'racer-rust/vim-racer', {'for': 'rust'}
 Plug 'fatih/vim-go', {'for': 'go'}
 
 "javascript
-Plug 'pangloss/vim-javascript', {'for': 'javascript'}
-Plug 'ternjs/tern_for_vim', {'do': 'npm install', 'for': 'javascript'}
-Plug 'mxw/vim-jsx', {'for': 'javascript'}
-Plug 'pmsorhaindo/syntastic-local-eslint.vim', {'for': 'javascript'}
+Plug 'pangloss/vim-javascript', {'for': ['javascript', 'javascipt.jsx']}
+Plug 'ternjs/tern_for_vim', {'do': 'npm install', 'for': ['javascript', 'javascript.jsx']}
+Plug 'mxw/vim-jsx', {'for': ['javascript', 'javascript.jsx']}
+Plug 'pmsorhaindo/syntastic-local-eslint.vim', {'for': ['javascript', 'javascript.jsx']}
 
 "ruby
 Plug 'vim-ruby/vim-ruby', {'for': 'ruby'}
@@ -57,6 +57,7 @@ Plug 'keith/swift.vim'
 Plug 'vim-scripts/nginx.vim'
 Plug 'honza/dockerfile.vim'
 Plug 'chikamichi/mediawiki.vim'
+Plug 'elzr/vim-json'
 
 if has('mac')
   Plug 'freitass/todo.txt-vim'
@@ -161,7 +162,6 @@ filetype plugin indent on
 
 au FileType make setl noexpandtab
 au BufRead,BufNewFile {Gemfile,Rakefile,Vagrantfile,Thorfile,config.ru} set ft=ruby
-au BufRead,BufNewFile *.json set ft=javascript
 au BufRead,BufNewFile *.ctp set ft=php
 
 au BufRead,BufNewFile *.twig set ft=jinja
@@ -174,6 +174,8 @@ au FileType rust setl textwidth=120 softtabstop=4 shiftwidth=4 tabstop=4 expandt
 au FileType ruby setl softtabstop=2 tabstop=2 expandtab
 au FileType python setl softtabstop=4 shiftwidth=4 tabstop=4 textwidth=90 expandtab
 au FileType javascript setl softtabstop=2 shiftwidth=2 tabstop=2 textwidth=90 expandtab
+au FileType javascript.jsx setl softtabstop=2 shiftwidth=2 tabstop=2 textwidth=90 expandtab
+au FileType json setl softtabstop=2 shiftwidth=2 tabstop=2 textwidth=90 expandtab
 au FileType go setl textwidth=120 softtabstop=4 shiftwidth=4 tabstop=4 noexpandtab
 au FileType jinja setl textwidth=120 softtabstop=4 shiftwidth=4 tabstop=4 expandtab
 au FileType twig setl textwidth=120 softtabstop=4 shiftwidth=4 tabstop=4 expandtab
@@ -289,6 +291,9 @@ let g:UltiSnipsEditSplit="vertical"
 
 "JSX in js files
 let g:jsx_ext_required = 0
+
+"Don't conceal quotes in json
+let g:vim_json_syntax_conceal = 0
 
 "Mapping for ctrlp
 let g:ctrlp_working_path_mode=''
