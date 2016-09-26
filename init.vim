@@ -1,77 +1,88 @@
-" Install vim-plug from github if not available
-let vim_plug_script = expand('~/.config/nvim/autoload/plug.vim')
-if !filereadable(vim_plug_script)
-  echo "Installing Vim-Plug"
-  silent !curl -fLo ~/.config/nvim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+"      __                    _                                  __  _
+"   /\ \ \ ___   ___ __   __(_) _ __ ___     ___  ___   _ __   / _|(_)  __ _
+"  /  \/ // _ \ / _ \\ \ / /| || '_ ` _ \   / __|/ _ \ | '_ \ | |_ | | / _` |
+" / /\  /|  __/| (_) |\ V / | || | | | | | | (__| (_) || | | ||  _|| || (_| |
+" \_\ \/  \___| \___/  \_/  |_||_| |_| |_|  \___|\___/ |_| |_||_|  |_| \__, |
+"                                                                      |___/
+
+if (!isdirectory(expand("$HOME/.config/nvim/repos/github.com/Shougo/dein.vim")))
+  call system(expand("mkdir -p $HOME/.config/nvim/repos/github.com"))
+  call system(expand("git clone https://github.com/Shougo/dein.vim $HOME/.config/nvim/repos/github.com/Shougo/dein.vim"))
 endif
 
-call plug#begin('~/.config/nvim/plugged')
+set runtimepath+=~/.config/nvim/repos/github.com/Shougo/dein.vim/
+call dein#begin(expand('~/.config/nvim'))
 
-"Navigation
-Plug 'kien/ctrlp.vim'
-Plug 'scrooloose/nerdtree'
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
+"Plugin manager
+call dein#add('Shougo/dein.vim')
 
-"General coding
-Plug 'Raimondi/delimitMate'
-Plug 'majutsushi/tagbar'
-Plug 'Valloric/YouCompleteMe', {'do': './install.py'}
-Plug 'scrooloose/syntastic'
-Plug 'SirVer/ultisnips'
-Plug 'bramr/vim-snippets'
+"General stuff
+call dein#add('Shougo/unite.vim')
+call dein#add('scrooloose/nerdtree')
+call dein#add('vim-airline/vim-airline')
+call dein#add('vim-airline/vim-airline-themes')
+
+"Coding stuff
+call dein#add('Shougo/deoplete.nvim')
+call dein#add('neomake/neomake')
+call dein#add('Raimondi/delimitMate')
+call dein#add('SirVer/ultisnips')
+call dein#add('bramr/vim-snippets')
 
 "git
-Plug 'tpope/vim-fugitive'
-Plug 'airblade/vim-gitgutter'
-
-"php
-Plug 'StanAngeloff/php.vim', {'for': 'php'}
-Plug 'shawncplus/phpcomplete.vim', {'for': 'php'}
-Plug '2072/PHP-Indenting-for-VIm', {'for': 'php'}
-Plug 'arnaud-lb/vim-php-namespace', {'for': 'php'}
-Plug 'tobyS/vmustache', {'for': 'php'}
-Plug 'tobyS/pdv', {'for': 'php'}
-Plug 'lepture/vim-jinja'
-
-"rust
-Plug 'rust-lang/rust.vim', {'for': 'rust'}
-Plug 'racer-rust/vim-racer', {'for': 'rust'}
-
-"go
-Plug 'fatih/vim-go', {'for': 'go'}
+call dein#add('tpope/vim-fugitive')
+call dein#add('airblade/vim-gitgutter')
+call dein#add('jreybert/vimagit')
+call dein#add('mxw/vim-jsx')
 
 "javascript
-Plug 'pangloss/vim-javascript', {'for': ['javascript', 'javascipt.jsx']}
-Plug 'ternjs/tern_for_vim', {'do': 'npm install', 'for': ['javascript', 'javascript.jsx']}
-Plug 'mxw/vim-jsx', {'for': ['javascript', 'javascript.jsx']}
-Plug 'pmsorhaindo/syntastic-local-eslint.vim', {'for': ['javascript', 'javascript.jsx']}
+call dein#add('othree/yajs.vim', {'on_ft': 'javascript'})
+call dein#add('othree/jsdoc-syntax.vim', {'on_ft':['javascript', 'typescript']})
+call dein#add('othree/es.next.syntax.vim', {'on_ft': 'javascript'})
 
-"ruby
-Plug 'vim-ruby/vim-ruby', {'for': 'ruby'}
+"php
+call dein#add('StanAngeloff/php.vim', {'on_ft': 'php'})
+call dein#add('shawncplus/phpcomplete.vim', {'on_ft': 'php'})
+call dein#add('2072/PHP-Indenting-for-VIm', {'on_ft': 'php'})
+call dein#add('arnaud-lb/vim-php-namespace', {'on_ft': 'php'})
+call dein#add('tobyS/vmustache', {'on_ft': 'php'})
+call dein#add('tobyS/pdv', {'on_ft': 'php'})
+call dein#add('lepture/vim-jinja', {'on_ft':['twig', 'jinja']})
 
-"swift
-Plug 'keith/swift.vim'
+"go
+call dein#add('fatih/vim-go', {'on_ft': 'go'})
+
+"html&css
+call dein#add('mattn/emmet-vim', {'on_ft': ['html', 'twig']})
+call dein#add('gko/vim-coloresque', {'on_ft': 'css'})
 
 "minor
-Plug 'vim-scripts/nginx.vim'
-Plug 'honza/dockerfile.vim'
-Plug 'chikamichi/mediawiki.vim'
-Plug 'elzr/vim-json'
+call dein#add('vim-scripts/nginx.vim')
+call dein#add('honza/dockerfile.vim')
+call dein#add('chikamichi/mediawiki.vim')
+call dein#add('elzr/vim-json', {'on_ft': 'json'})
+call dein#add('freitass/todo.txt-vim')
+call dein#add('tpope/vim-surround')
 
 if has('mac')
-  Plug 'freitass/todo.txt-vim'
-  Plug 'rizzatti/dash.vim'
+  call dein#add('rizzatti/dash.vim')
 endif
 
-"Colorschemes
-Plug 'bramr/molokai'
-Plug 'noahfrederick/vim-noctu'
-Plug 'vim-scripts/proton'
+"optional
+"call dein#add('ryanoasis/vim-devicons')
 
-call plug#end()
+"Pretty colors
+call dein#add('bramr/molokai')
+
+call dein#end()
+
+syntax on
 
 colorscheme molokai
+
+filetype plugin indent on
+
+set relativenumber number
 
 "Allow backspace over lines
 set backspace=2
@@ -127,6 +138,9 @@ set updatecount=30
 "Show matches, jump 300ms
 set showmatch
 
+set splitbelow
+set splitright
+
 " Show trailing whitespace
 highlight ExtraWhitespace ctermbg=red guibg=red
 match ExtraWhitespace /\s\+$/
@@ -136,29 +150,6 @@ set autowrite
 
 " Remove trailing whitespaces and ^M chars
 autocmd FileType c,cpp,css,java,php,javascript,python,ruby,jinja,twig,xml,yml,phtml,vim autocmd BufWritePre <buffer> :call setline(1,map(getline(1,"$"),'substitute(v:val,"\\s\\+$","","")'))
-
-
-"Change the statusline, normally overwritten by airline.vim
-if has("statusline")
-  set statusline=%t\        "tail of the filename
-  set statusline+=%{fugitive#statusline()}
-  set statusline+=[%{strlen(&fenc)?&fenc:'none'},  "file encoding
-  set statusline+=%{&ff}]\  "file format
-  set statusline+=%h        "help file flag
-  set statusline+=%m        "modified flag
-  set statusline+=%r        "read only flag
-  set statusline+=%y        "filetype
-  set statusline+=%=        "left/right separator
-  set statusline+=%c,       "cursor column
-  set statusline+=%l/%L     "cursor line/total lines
-  set statusline+=\ %P      "percent through file
-end
-
-"
-" Filetype definitions
-"
-
-filetype plugin indent on
 
 au FileType make setl noexpandtab
 au BufRead,BufNewFile {Gemfile,Rakefile,Vagrantfile,Thorfile,config.ru} set ft=ruby
@@ -191,20 +182,74 @@ autocmd FileType php set omnifunc=phpcomplete#CompletePHP
 autocmd FileType python set omnifunc=pythoncomplete#Complete
 autocmd FileType xml set omnifunc=xmlcomplete#CompleteTags
 autocmd CompleteDone * pclose
+
+
 "
-" Basic Keyboard shortcuts
+" Plugin settings
 "
+
+"neomake syntax checking
+let g:neomake_php_phpcs_args_standard="PSR1,PSR2"
+
+"syntastic syntax checking
+let g:syntastic_check_on_open=0
+let g:syntastic_enable_signs=1
+let g:syntastic_php_phpcs_args="--standard=PSR1,PSR2"
+let g:syntastic_php_checkers = ['php','phpcs']
+let g:syntastic_javascript_checkers=['eslint']
+
+"delimitmate expand on return
+let delimitMate_expand_cr=1
+
+" enable deoplete
+let g:deoplete#enable_at_startup = 1
+
+"Ailine config
+let g:airline_theme='simple'
+let g:airline_left_sep=''
+let g:airline_right_sep=''
+let g:airline_symbols = {}
+let g:airline_symbols.linenr='␤'
+let g:airline_symbols.branch='⎇'
+let g:airline_powerline_fonts = 1
+
+"Snippets config
+let g:UltiSnipsExpandTrigger="<C-e>"
+let g:UltiSnipsJumpForwardTrigger="<C-b>"
+let g:UltiSnipsJumpBackwardTrigger="<C-z>"
+
+let g:UltiSnipsEditSplit="vertical"
+
+"JSX in js files
+let g:jsx_ext_required = 0
+
+"Don't conceal quotes in json
+let g:vim_json_syntax_conceal = 0
+
+if has('mac')
+  "Mapping for Dash
+  nnoremap <Leader>? :Dash<CR>
+endif
+
+"TODO customize in my theme
+highlight LineNr ctermfg=244
+
+"
+" Keybindings
+"
+
 "set <Leader> key
 let mapleader = ","
 let maplocalleader= ","
 
-"Move up down with space
-nmap <Leader><Space> 10k
-nmap <Space> 10j
-
 " Clear highlighting on escape in normal mode
 nnoremap <esc> :noh<return><esc>
 nnoremap <esc>^[ <esc>^[<Paste>
+
+"Move up down with space
+nmap <S-k> 10k
+nmap <Space> 10j
+nmap <S-j> 10j
 
 "Shifting code in visual mode and stay in visual
 vnoremap > >gv
@@ -216,15 +261,8 @@ nmap <Tab><Tab> <C-w> w
 nmap <S-Tab> :split<CR>
 nmap <Leader><Tab> :vsplit<CR>
 
-set splitbelow
-set splitright
-
-"easy splitting and back to 1 window
-map <C-p> :setl lines=60 columns=272<CR>
-
-"Use Ctrl-F for omni completion
+"Set omni completion
 inoremap <C-f> <C-x><C-O>
-"Use Ctrl-D for omni completion
 inoremap <C-d> <C-x><C-n>
 
 " map CTRL-V to piece-wise copying of the line above the current one
@@ -241,72 +279,17 @@ cmap w!! w !sudo tee > /dev/null %<CR>
 "Quickly set a file to my preferred format
 nmap <Leader>e :setl fileencoding=utf-8 fileformat=unix<CR>
 
-" use make command
-nmap <Leader>m :make<CR>
-
-nmap <F8> :TagbarToggle<CR>
-
-"map spellcheck stuff
-nmap <Leader>1 [s
-nmap <Leader>2 ]s
-nmap <Leader>3 z=
-nmap <Leader>4 ]sz=
-nmap <Leader>8 :setlocal spell spelllang=nl<CR>:setlocal spell<CR>
-nmap <Leader>9 :setlocal spell spelllang=en_us<CR>:setlocal spell<CR>
-nmap <Leader>0 :setlocal spell spelllang=en_us<CR>:setlocal nospell<CR>
-" Toggle listing invisible chars
-nmap <silent> <Leader>5 :set list!<CR>
-" Toggle line numbers
-nmap <silent> <Leader>6 :set number!<CR>
-"Show/Hide NerdTree
-nmap <silent> <Leader>7 :NERDTreeToggle<CR>
-
-"
-" Bundle settings
-"
-
-"syntastic syntax checking
-let g:syntastic_check_on_open=0
-let g:syntastic_enable_signs=1
-let g:syntastic_php_phpcs_args="--standard=PSR1,PSR2"
-let g:syntastic_php_checkers = ['php','phpcs']
-let g:syntastic_javascript_checkers=['eslint']
-"delimitmate expand on return
-let delimitMate_expand_cr=1
-
-"Ailine config
-let g:airline_theme='simple'
-let g:airline_left_sep=''
-let g:airline_right_sep=''
-let g:airline_symbols = {}
-let g:airline_symbols.linenr='␤'
-let g:airline_symbols.branch='⎇'
-
-"Snippets config
-let g:UltiSnipsExpandTrigger="<C-e>"
-let g:UltiSnipsJumpForwardTrigger="<C-b>"
-let g:UltiSnipsJumpBackwardTrigger="<C-z>"
-
-let g:UltiSnipsEditSplit="vertical"
-
-"JSX in js files
-let g:jsx_ext_required = 0
-
-"Don't conceal quotes in json
-let g:vim_json_syntax_conceal = 0
-
-"Mapping for ctrlp
-let g:ctrlp_working_path_mode=''
-noremap <Leader>t :CtrlP<CR>
-noremap <Leader>T :CtrlPClearAllCaches<CR>:CtrlP<CR>
-noremap <Leader>r :CtrlPBuffer<CR>
-
 "Docblocks
 let g:pdv_template_dir = $HOME ."/.config/nvim/plugged/pdv/templates_snip"
 nnoremap <leader>d :call pdv#DocumentWithSnip()<CR>
 
 "Mappings for to diff two buffers
 nnoremap <Leader>D :windo diffoff<CR>
+
+"Unite
+nnoremap <Leader>t :Unite file buffer<CR>
+nnoremap <Leader>r :Unite buffer<CR>
+nnoremap <Leader>T :Unite file<CR>
 
 "Fugitive mappings
 nnoremap <Leader>g :Git
@@ -316,8 +299,9 @@ nnoremap <Leader>gl :Glog<CR>
 nnoremap <Leader>gr :Gread<CR>
 nnoremap <Leader>gs :Gstatus<CR>
 
-if has('mac')
-  "Mapping for Dash
-  nnoremap <Leader>? :Dash<CR>
-endif
-
+" Toggle listing invisible chars
+nmap <silent> <Leader>5 :set list!<CR>
+" Toggle line numbers
+nmap <silent> <Leader>6 :set number!<CR>
+"Show/Hide NerdTree
+nmap <silent> <Leader>7 :NERDTreeToggle<CR>
