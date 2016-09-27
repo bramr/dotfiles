@@ -17,6 +17,8 @@ call dein#begin(expand('~/.config/nvim'))
 call dein#add('Shougo/dein.vim')
 
 "General stuff
+call dein#add('junegunn/fzf', { 'build': './install', 'merged': 0 })
+call dein#add('junegunn/fzf.vim')
 call dein#add('Shougo/unite.vim')
 call dein#add('scrooloose/nerdtree')
 call dein#add('vim-airline/vim-airline')
@@ -203,6 +205,7 @@ let delimitMate_expand_cr=1
 
 " enable deoplete
 let g:deoplete#enable_at_startup = 1
+inoremap <expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
 
 "Ailine config
 let g:airline_theme='simple'
@@ -286,10 +289,12 @@ nnoremap <leader>d :call pdv#DocumentWithSnip()<CR>
 "Mappings for to diff two buffers
 nnoremap <Leader>D :windo diffoff<CR>
 
-"Unite
-nnoremap <Leader>t :Unite file buffer<CR>
-nnoremap <Leader>r :Unite buffer<CR>
-nnoremap <Leader>T :Unite file<CR>
+"Mappings for fzf
+nnoremap <Leader>t :GFiles<CR>
+nnoremap <Leader>T :Files<CR>
+nnoremap <Leader>r :Buffers<CR>
+nnoremap <Leader>R :Lines<CR>
+nnoremap <Leader>y :Histoy/<CR>
 
 "Fugitive mappings
 nnoremap <Leader>g :Git
