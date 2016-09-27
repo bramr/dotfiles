@@ -191,7 +191,19 @@ autocmd CompleteDone * pclose
 "
 
 "neomake syntax checking
+autocmd BufWritePost,BufEnter * Neomake
+let g:neomake_javascript_enabled_makers = ['eslint']
 let g:neomake_php_phpcs_args_standard="PSR1,PSR2"
+
+"style warnings/errors
+let g:neomake_warning_sign = {
+  \ 'text': '⚠',
+  \ 'texthl': 'WarningMsg',
+  \ }
+let g:neomake_error_sign = {
+  \ 'text': '✗',
+  \ 'texthl': 'ErrorMsg',
+  \ }
 
 "syntastic syntax checking
 let g:syntastic_check_on_open=0
