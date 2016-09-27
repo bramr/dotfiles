@@ -308,6 +308,12 @@ nnoremap <Leader>r :Buffers<CR>
 nnoremap <Leader>R :Lines<CR>
 nnoremap <Leader>y :Histoy/<CR>
 
+"Mappings for errors/neomake
+nnoremap <Leader>e :lopen<CR>
+nnoremap <Leader>E :lclose<CR>
+nnoremap <Leader>n :lnext<CR>
+nnoremap <Leader>N :lprev<CR>
+
 "Fugitive mappings
 nnoremap <Leader>g :Git
 nnoremap <Leader>ga :Gwrite<CR>
