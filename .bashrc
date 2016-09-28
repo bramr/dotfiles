@@ -23,3 +23,5 @@ function dockup {
 		eval "$(docker-machine env $1)"
 	fi
 }
+
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash
