@@ -295,7 +295,7 @@ cmap w!! w !sudo tee > /dev/null %<CR>
 nmap <Leader>e :setl fileencoding=utf-8 fileformat=unix<CR>
 
 "Docblocks
-let g:pdv_template_dir = $HOME ."/.config/nvim/plugged/pdv/templates_snip"
+let g:pdv_template_dir = $HOME ."/.config/nvim/repos/github.com/tobyS/pdv/templates"
 nnoremap <leader>d :call pdv#DocumentWithSnip()<CR>
 
 "Mappings for to diff two buffers
