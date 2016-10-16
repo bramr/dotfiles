@@ -41,6 +41,8 @@ call dein#add('mxw/vim-jsx')
 call dein#add('othree/yajs.vim', {'on_ft': 'javascript'})
 call dein#add('othree/jsdoc-syntax.vim', {'on_ft':['javascript', 'typescript']})
 call dein#add('othree/es.next.syntax.vim', {'on_ft': 'javascript'})
+call dein#add('ternjs/tern_for_vim', {'build': 'npm install', 'on_ft': 'javascript'})
+call dein#add('carlitux/deoplete-ternjs', {'build': 'npm install -g tern', 'on_ft': 'javascript'})
 
 "php
 call dein#add('StanAngeloff/php.vim', {'on_ft': 'php'})
@@ -278,7 +280,7 @@ nmap <Leader><Tab> :vsplit<CR>
 
 "Set omni completion
 inoremap <C-f> <C-x><C-O>
-inoremap <C-d> <C-x><C-n>
+inoremap <C-d> <C-x><C-]>
 
 " map CTRL-V to piece-wise copying of the line above the current one
 imap <C-v> a<esc>kywgi<esc>Pla<bs>
