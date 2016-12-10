@@ -1,0 +1,27 @@
+// Place your settings in this file to overwrite the default settings
+{
+    "editor.fontFamily": "Hack, Menlo, Monaco, 'Courier New', monospace",
+    "editor.lineNumbers": "relative",
+    
+    "vim.useCtrlKeys": true,
+    "vim.otherModesKeyBindingsNonRecursive": [
+        {
+            "before": ["Tab"],
+            "after": ["C-w"]
+        },
+        {
+            "before": ["K"],
+            "after": ["1", "0", "k"]
+        },
+        {
+            "before": [" "],
+            "after": ["1", "0", "j"]
+        },
+        {
+            "before": ["J"],
+            "after": ["1", "0", "j"]
+        }
+    ],
+
+    "phpcs.standard": "PSR1,PSR2"
+}

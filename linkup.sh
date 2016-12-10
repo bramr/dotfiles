@@ -10,4 +10,5 @@ ln -s $(pwd)/.bashrc ~/.bashrc
 ln -s $(pwd)/.profile ~/.profile
 ln -s $(pwd)/.eslintrc.json ~/.eslintrc.json
 mkdir -p ~/.config/nvim
-ln -s $(pwd)/init.vim ~/.config/nvim/init.vim
+mkdir -p ~/Library/Application\ Support/Code/User
+ln -s $(pwd)/config/vscode/settings.json ~/Library/Application\ Support/Code/User/settings.json
