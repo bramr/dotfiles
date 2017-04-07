@@ -6,15 +6,16 @@
 "                                                                      |___/
 
 let g:bramr_vimpath = '~/.config/nvim/'
+let g:bramr_devicons = 'yes-please'
 
-"Add plugins managed by plug
-source ~/dotfiles/vim/plug.vim
+"Add plugins managed by dein
+source ~/dotfiles/vim/dein.vim
 
 "Basic settings & keybindings
 source ~/dotfiles/vim/basic.vim
 
 "Add plugin settings (managed by plug)
-source ~/dotfiles/vim/plug-settings.vim
+source ~/dotfiles/vim/dein-settings.vim
 
 "Machine settings
 source ~/dotfiles/vim/local.vim

@@ -27,6 +27,7 @@ call dein#add('Raimondi/delimitMate')
 call dein#add('SirVer/ultisnips')
 call dein#add('bramr/vim-snippets')
 call dein#add('xolox/vim-easytags')
+call dein#add('xolox/vim-misc')
 call dein#add('majutsushi/tagbar')
 
 "git
@@ -69,6 +70,7 @@ call dein#add('tpope/vim-surround')
 
 "optional
 if has('mac')
+  call dein#add('xolox/vim-notes')
   call dein#add('rizzatti/dash.vim')
 endif
 if exists('g:bramr_devicons')

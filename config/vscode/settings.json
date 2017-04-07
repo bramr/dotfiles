@@ -22,6 +22,9 @@
             "after": ["1", "0", "j"]
         }
     ],
-
-    "phpcs.standard": "PSR1,PSR2"
+    "crane.showStatusBarBugReportLink": false,
+    "phpcs.standard": "PSR1,PSR2",
+    "window.zoomLevel": 0,
+    "workbench.colorTheme": "Seti Monokai",
+    "workbench.iconTheme": "vs-seti"
 }

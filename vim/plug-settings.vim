@@ -45,7 +45,7 @@ if has('mac')
 endif
 
 "Docblocks
-let g:pdv_template_dir = g:bramr_vimpath . "repos/github.com/tobyS/pdv/templates"
+let g:pdv_template_dir = "/Users/bram/.config/nvim/plugged/pdv/templates"
 nnoremap <leader>d :call pdv#DocumentWithSnip()<CR>
 
 

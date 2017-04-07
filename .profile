@@ -10,4 +10,4 @@ export CLICOLOR=1
 export LSCOLORS=gxBxhxDxfxhxhxhxhxcxcx
 
 TERM=xterm-256color
-export EDITOR=/usr/bin/vim
+export EDITOR=/usr/local/bin/nvim

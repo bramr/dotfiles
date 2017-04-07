@@ -43,6 +43,8 @@ let g:jsx_ext_required = 0
 let g:vim_json_syntax_conceal = 0
 
 if has('mac')
+  "Change notes directory
+  let g:notes_directories = ['~/Documents/VimNotes']
   "Mapping for Dash
   nnoremap <Leader>? :Dash<CR>
 endif
