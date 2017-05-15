@@ -95,12 +95,13 @@ au FileType php setl textwidth=120 softtabstop=4 shiftwidth=4 tabstop=4 expandta
 au FileType rust setl textwidth=120 softtabstop=4 shiftwidth=4 tabstop=4 expandtab
 au FileType ruby setl softtabstop=2 tabstop=2 expandtab
 au FileType python setl softtabstop=4 shiftwidth=4 tabstop=4 textwidth=90 expandtab
+au FileType java setl softtabstop=2 shiftwidth=2 tabstop=2 textwidth=90 expandtab
 au FileType javascript setl softtabstop=2 shiftwidth=2 tabstop=2 textwidth=90 expandtab
 au FileType javascript.jsx setl softtabstop=2 shiftwidth=2 tabstop=2 textwidth=90 expandtab
 au FileType json setl softtabstop=2 shiftwidth=2 tabstop=2 textwidth=90 expandtab
 au FileType go setl textwidth=120 softtabstop=4 shiftwidth=4 tabstop=4 noexpandtab
 au FileType jinja setl textwidth=120 softtabstop=4 shiftwidth=4 tabstop=4 expandtab
-au FileType twig setl textwidth=120 softtabstop=4 shiftwidth=4 tabstop=4 expandtab
+au FileType twig setl textwidth=120 softtabstop=2 shiftwidth=2 tabstop=2 expandtab
 au FileType yaml setl softtabstop=2 shiftwidth=2 tabstop=2 textwidth=90 expandtab
 au FileType vim setl softtabstop=2 shiftwidth=2 tabstop=2 textwidth=90 expandtab
 

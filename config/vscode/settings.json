@@ -2,8 +2,17 @@
 {
     "editor.fontFamily": "Hack, Menlo, Monaco, 'Courier New', monospace",
     "editor.lineNumbers": "relative",
-    
+
     "vim.useCtrlKeys": true,
+    "vim.statusBarColorControl": true,
+    "vim.statusBarColors" : {
+        "normal": "#333333",
+        "insert": "#d33682",
+        "visual": "#268bd2",
+        "visualline": "#2aa198",
+        "visualblock": "#859900",
+        "replace": "#b58900"
+    },
     "vim.otherModesKeyBindingsNonRecursive": [
         {
             "before": ["Tab"],
@@ -23,8 +32,16 @@
         }
     ],
     "crane.showStatusBarBugReportLink": false,
+    "php.suggest.basic": false,
     "phpcs.standard": "PSR1,PSR2",
     "window.zoomLevel": 0,
-    "workbench.colorTheme": "Seti Monokai",
-    "workbench.iconTheme": "vs-seti"
+    "workbench.colorTheme": "Monokai GRS",
+    "workbench.iconTheme": "vs-seti",
+    "vsicons.dontShowNewVersionMessage": true,
+    "zenMode.hideStatusBar": false,
+    "workbench.colorCustomizations": {
+        "statusBar.background": "#333333",
+        "statusBar.noFolderBackground": "#333333",
+        "statusBar.debuggingBackground": "#333333"
+    }
 }

@@ -56,6 +56,9 @@ call dein#add('lepture/vim-jinja', {'on_ft':['twig', 'jinja']})
 call dein#add('fatih/vim-go', {'on_ft': 'go'})
 call dein#add('zchee/deoplete-go', {'build': 'make'})
 
+"java
+call dein#add('artur-shaik/vim-javacomplete2', {'on_ft': 'java'})
+
 "html&css
 call dein#add('mattn/emmet-vim', {'on_ft': ['html', 'twig']})
 call dein#add('gko/vim-coloresque', {'on_ft': 'css'})
