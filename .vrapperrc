@@ -1,0 +1,33 @@
+".vimrc for eclipse
+
+" Update sites:
+" Vrapper: http://vrapper.sourceforge.net/update-site/stable
+" Relative numbers: http://matf.github.com/relativenumberruler/updatesite
+
+set shiftwidth=4
+set softtabstop=4
+set scrolloff=5
+set clipboard=unnamed
+
+"set <Leader> key
+let mapleader = ","
+let maplocalleader= ","
+
+"Move up down with space
+nmap <S-k> 10k
+nmap <Space> 10j
+nmap <S-j> 10j
+
+"Shifting code in visual mode and stay in visual
+vnoremap > >gv
+vnoremap < <gv
+
+"Make tab help with panes managment
+nmap <Tab> <C-w>
+nmap <Tab><Tab> <C-w> w
+nmap <S-Tab> :split<CR>
+nmap <Leade
+
+" Use tick and doubletick to get around quickly, leaving ` for named marks.
+nnoremap ' mM
+nnoremap '' `Mr><Tab> :vsplit<CR>
