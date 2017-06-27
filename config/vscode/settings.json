@@ -1,47 +1,53 @@
 // Place your settings in this file to overwrite the default settings
 {
-    "editor.fontFamily": "Hack, Menlo, Monaco, 'Courier New', monospace",
-    "editor.lineNumbers": "relative",
-
-    "vim.useCtrlKeys": true,
-    "vim.statusBarColorControl": true,
-    "vim.statusBarColors" : {
-        "normal": "#333333",
-        "insert": "#d33682",
-        "visual": "#268bd2",
-        "visualline": "#2aa198",
-        "visualblock": "#859900",
-        "replace": "#b58900"
+  "editor.fontFamily": "Hack, Menlo, Monaco, 'Courier New', monospace",
+  "editor.lineNumbers": "relative",
+  "[javascript]": {
+    "editor.tabSize": 2
+  },
+  "[json]": {
+    "editor.tabSize": 2
+  },
+  "vim.useCtrlKeys": true,
+  "vim.statusBarColorControl": true,
+  "vim.statusBarColors" : {
+    "normal": "#333333",
+    "insert": "#d33682",
+    "visual": "#268bd2",
+    "visualline": "#2aa198",
+    "visualblock": "#859900",
+    "replace": "#b58900"
+  },
+  "vim.otherModesKeyBindingsNonRecursive": [
+    {
+      "before": ["Tab"],
+      "after": ["C-w"]
     },
-    "vim.otherModesKeyBindingsNonRecursive": [
-        {
-            "before": ["Tab"],
-            "after": ["C-w"]
-        },
-        {
-            "before": ["K"],
-            "after": ["1", "0", "k"]
-        },
-        {
-            "before": [" "],
-            "after": ["1", "0", "j"]
-        },
-        {
-            "before": ["J"],
-            "after": ["1", "0", "j"]
-        }
-    ],
-    "crane.showStatusBarBugReportLink": false,
-    "php.suggest.basic": false,
-    "phpcs.standard": "PSR1,PSR2",
-    "window.zoomLevel": 0,
-    "workbench.colorTheme": "Monokai GRS",
-    "workbench.iconTheme": "vs-seti",
-    "vsicons.dontShowNewVersionMessage": true,
-    "zenMode.hideStatusBar": false,
-    "workbench.colorCustomizations": {
-        "statusBar.background": "#333333",
-        "statusBar.noFolderBackground": "#333333",
-        "statusBar.debuggingBackground": "#333333"
+    {
+      "before": ["K"],
+      "after": ["1", "0", "k"]
+    },
+    {
+      "before": [" "],
+      "after": ["1", "0", "j"]
+    },
+    {
+      "before": ["J"],
+      "after": ["1", "0", "j"]
     }
+  ],
+  "crane.showStatusBarBugReportLink": false,
+  "php.suggest.basic": false,
+  "phpcs.standard": "PSR1,PSR2",
+  "window.zoomLevel": 0,
+  "workbench.colorTheme": "Monokai GRS",
+  "workbench.iconTheme": "vs-seti",
+  "vsicons.dontShowNewVersionMessage": true,
+  "zenMode.hideStatusBar": false,
+  "workbench.colorCustomizations": {
+    "statusBar.background": "#333333",
+    "statusBar.noFolderBackground": "#333333",
+    "statusBar.debuggingBackground": "#333333"
+  },
+  "vim.disableAnnoyingNeovimMessage": true
 }
