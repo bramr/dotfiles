@@ -174,3 +174,6 @@ nmap <silent> <Leader>5 :set list!<CR>
 " Toggle line numbers
 nmap <silent> <Leader>6 :set relativenumber! number!<CR>
 
+" Map autocomplete
+inoremap <C-Space> <C-x><C-o>
+inoremap <C-@> <C-Space>
