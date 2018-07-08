@@ -8,6 +8,13 @@
   "[json]": {
     "editor.tabSize": 2
   },
+  "[java]": {
+    "editor.tabSize": 2,
+    "editor.formatOnSave": true,
+    "editor.codeActionsOnSave": {
+      "source.organizeImports": true
+    }
+  },
   "vim.useCtrlKeys": true,
   "vim.statusBarColorControl": true,
   "vim.statusBarColors" : {
@@ -18,7 +25,7 @@
     "visualblock": "#859900",
     "replace": "#b58900"
   },
-  "vim.otherModesKeyBindingsNonRecursive": [
+  "vim.normalModeKeyBindingsNonRecursive": [
     {
       "before": ["Tab"],
       "after": ["C-w"]
@@ -36,7 +43,6 @@
       "after": ["1", "0", "j"]
     }
   ],
-  "crane.showStatusBarBugReportLink": false,
   "php.suggest.basic": false,
   "phpcs.standard": "PSR1,PSR2",
   "window.zoomLevel": 0,
@@ -49,5 +55,14 @@
     "statusBar.noFolderBackground": "#333333",
     "statusBar.debuggingBackground": "#333333"
   },
-  "vim.disableAnnoyingNeovimMessage": true
+  "editor.minimap.enabled": false,
+  "gitlens.keymap": "none",
+  "gitlens.advanced.messages": {
+    "suppressShowKeyBindingsNotice": true
+  },
+  "java.home": "/Library/Java/JavaVirtualMachines/jdk1.8.0_152.jdk/Contents/Home",
+  "java.format.settings.url": "https://raw.githubusercontent.com/google/styleguide/gh-pages/eclipse-java-google-style.xml",
+  "java.format.settings.profile": "GoogleStyle",
+  "java.format.enabled": true,
+  "gitlens.historyExplorer.enabled": true
 }
