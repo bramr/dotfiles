@@ -7,7 +7,7 @@
 	st = status
 	uc = checkout --
 [core]
-	excludesfile = ~/.gitignore
+	excludesfile = /Users/u702140/.gitignore
 [color]
 	ui = true
 [merge]
@@ -17,4 +17,10 @@
 	default = current
 [user]
 	name = Bram Rohde
-	email = bramr@outlook.com
+	email = b.rohde@ru.nl
+[difftool "sourcetree"]
+	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+	path = 
+[mergetool "sourcetree"]
+	cmd = /Applications/Sourcetree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+	trustExitCode = true
