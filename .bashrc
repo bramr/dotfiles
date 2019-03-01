@@ -7,6 +7,7 @@ alias w1='watch -n 1'
 alias ll="ls -lvG"
 alias df='df -H'
 alias du='du -h -d 1'
+alias nn='nnn'
 
 # machine dependent stuff/ environment vars
 if [ -f ~/.bash_local.sh ]; then

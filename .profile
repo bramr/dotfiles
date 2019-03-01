@@ -11,3 +11,5 @@ export LSCOLORS=gxBxhxDxfxhxhxhxhxcxcx
 
 TERM=xterm-256color
 export EDITOR=/usr/local/bin/vim
+
+export NNN_CONTEXT_COLORS='4356'
