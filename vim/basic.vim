@@ -38,7 +38,7 @@ set noexpandtab
 set tabstop=4
 set shiftwidth=4
 set softtabstop=4
-set listchars=tab:▸-,eol:^,trail:_
+set listchars=tab:->,eol:^,trail:_
 
 set noeol
 
