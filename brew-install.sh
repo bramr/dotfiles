@@ -22,3 +22,6 @@ brew cask install eclipse-jee
 # fonts
 brew tap homebrew/cask-fonts
 brew install font-hack font-inconsolata
+
+# install ohmyzsh
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
