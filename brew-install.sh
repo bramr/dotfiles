@@ -2,15 +2,22 @@
 
 # Install most of my mac packages
 
-brew install tmux nnn vim moreutils atool htop git wget nmap sshfs maven kubernetes-cli watch cmus mas peco tig ncdu pwsafe ipcalc httpie youtube-dl go python3
+brew install tmux nnn vim moreutils atool htop git wget nmap sshfs
+brew install maven kubernetes-cli watch cmus mas peco tig ncdu pwsafe
+brew install ipcalc httpie youtube-dl go python3
 
-brew cask install alfred iterm2 firefox google-chrome visual-studio-code docker vlc spectacle
-brew cask install secure-pipes cyberduck disk-inventory-x typora postman osxfuse sequel-pro java
-brew cask install helium the-unarchiver
-# optional: brew cask install qbittorrent mysqlworkbench duet pluralsight mullvadvpn yujitach-menumeters
+
+brew cask install alfred iterm2 firefox brave-browser
+brew cask google-chrome visual-studio-code docker vlc
+brew cask install secure-pipes cyberduck disk-inventory-x
+brew cask install typora postman osxfuse sequel-pro
+brew cask install the-unarchiver pluralsight mysqlworkbench
+brew cask install qbittorrent sonic-pi discord
 
 brew tap homebrew/cask-versions
-brew install java8 kotlin
+brew install jenv openjdk@11 adoptopenjdk8 adoptopenjdk kotlin
+
+brew cask install eclipse-jee
 
 # fonts
 brew tap homebrew/cask-fonts
