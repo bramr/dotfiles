@@ -7,8 +7,6 @@ ln -s ~/dotfiles/git/.gitk ~/.gitk
 ln -s ~/dotfiles/.bash_profile ~/.bash_profile
 ln -s ~/dotfiles/.bashrc ~/.bashrc
 ln -s ~/dotfiles/.profile ~/.profile
-ln -s ~/dotfiles/.eslintrc.json ~/.eslintrc.json
-ln -s ~/dotfiles/.vrapperrc ~/.vrapperrc
 ln -s ~/dotfiles/.zshenv ~/.zshenv
 ln -s ~/dotfiles/.zshrc ~/.zshrc
 [ "$(uname)" == "Darwin" ] && mkdir -p ~/Library/Application\ Support/Code/User \

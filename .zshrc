@@ -25,6 +25,7 @@ alias du='du -h -d 1'
 alias dus='du -h -d 1 | sort -h'
 alias dus2='du -h -d 2 | sort -h'
 alias dus3='du -h -d 3 | sort -h'
+alias emoji="$EDITOR ~/dotfiles/misc/emoji.txt"
 
 [ -x "$(command -v nnn)" ] && . ~/dotfiles/shell/nnn.sh
 
