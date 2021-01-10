@@ -76,8 +76,6 @@ alias emoji="$EDITOR ~/dotfiles/misc/emoji.txt"
   && alias gstl='git stash list' \
   && alias gsts='git stash save'
 
-[ -f "$HOME/.alias" ] && . "$HOME/.alias"
-
-[ -f "$HOME/.shell_local" ] && . "$HOME/.shell_local"
+[ -f "$HOME/.local.sh" ] && . "$HOME/.local.sh"
 
 echo "👾👾👾 $(basename $SHELL) config loaded 👾👾👾"
