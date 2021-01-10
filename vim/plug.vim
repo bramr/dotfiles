@@ -13,6 +13,7 @@ Plug 'scrooloose/nerdtree'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'Raimondi/delimitMate'
+Plug 'freitass/todo.txt-vim'
 
 "Coding stuff
 Plug 'w0rp/ale'
@@ -38,7 +39,6 @@ Plug 'bramr/molokai'
 
 "Optional
 if has('mac')
-  Plug 'xolox/vim-notes'
   Plug 'rizzatti/dash.vim'
 endif
 
