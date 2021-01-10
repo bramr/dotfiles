@@ -76,6 +76,17 @@ alias emoji="$EDITOR ~/dotfiles/misc/emoji.txt"
   && alias gstl='git stash list' \
   && alias gsts='git stash save'
 
+# Youtube
+[ -x "$(command -v youtube-dl)" ] \
+ && alias yt="youtube-dl -f 'bestvideo[ext=mp4]+bestaudio[ext=m4a]/best[ext=mp4]/best' " \
+ && alias ytf="youtube-dl -F " \
+ && alias yta="youtube-dl -f bestaudio -x --audio-format mp3 --audio-quality 3 "
+
+case "$OSTYPE" in
+  darwin*) . "$HOME/dotfiles/shell/mac.sh" ;;
+  linux*) . "$HOME/dotfiles/shell/linux.sh" ;;
+esac
+
 [ -f "$HOME/.local.sh" ] && . "$HOME/.local.sh"
 
 echo "👾👾👾 $(basename $SHELL) config loaded 👾👾👾"
