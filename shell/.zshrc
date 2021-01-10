@@ -4,8 +4,10 @@ then
   export ZSH="$HOME/.oh-my-zsh"
   ZSH_THEME="agnoster"
   #plugins=()
-  bindkey '^K' edit-command-line
   source $ZSH/oh-my-zsh.sh
+  autoload -z edit-command-line
+  zle -N edit-command-line
+  bindkey '^K' edit-command-line
 elif [ $(basename $SHELL) == "bash" ]
 then
   . ~/dotfiles/shell/git-prompt.sh
