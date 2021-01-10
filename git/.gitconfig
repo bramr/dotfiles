@@ -17,7 +17,7 @@
 	default = current
 [user]
 	name = Bram Rohde
-	email = b.rohde@ru.nl
+	email = bram@br4m.nl
 [difftool "sourcetree"]
 	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
 	path = 
