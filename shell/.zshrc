@@ -84,11 +84,18 @@ alias emoji="$EDITOR ~/dotfiles/misc/emoji.txt"
   && alias gstl='git stash list' \
   && alias gsts='git stash save'
 
+# Spell check
+[ -x "$(command -v aspell)" ] \
+  && alias sc='aspell --lang=en -a' \
+  && alias scn='aspell --lang=nl -a' \
+  && alias scf='aspell --lang=en -f' \
+  && alias scfn='aspell --lang=nl -f' \
+
 # Youtube
 [ -x "$(command -v youtube-dl)" ] \
- && alias yt="youtube-dl -f 'bestvideo[ext=mp4]+bestaudio[ext=m4a]/best[ext=mp4]/best' " \
- && alias ytf="youtube-dl -F " \
- && alias yta="youtube-dl -f bestaudio -x --audio-format mp3 --audio-quality 3 "
+  && alias yt="youtube-dl -f 'bestvideo[ext=mp4]+bestaudio[ext=m4a]/best[ext=mp4]/best' " \
+  && alias ytf="youtube-dl -F " \
+  && alias yta="youtube-dl -f bestaudio -x --audio-format mp3 --audio-quality 3 "
 
 case "$OSTYPE" in
   darwin*) . "$HOME/dotfiles/shell/mac.sh" ;;

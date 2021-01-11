@@ -23,15 +23,17 @@ brew install musikcube
 
 # fonts
 wget https://github.com/ryanoasis/nerd-fonts/releases/download/v2.1.0/Hack.zip
-# brew tap homebrew/cask-fonts
-# brew install font-hack font-inconsolata
-# brew cask install eclipse-jee
 
+brew tap homebrew/cask-fonts
+brew install --cask font-hack font-inconsolata
+brew install --cask font-hack-nerd-font
+# brew cask install eclipse-jee
 
 mkdir -p ~/Developer/Bram
 cd ~/Developer/Bram
 git clone https://github.com/jarun/nnn.git
-cd nnn && make O_NERD=1 && mkdir ~/bin && cp nnn ~/bin/
+cd nnn && make O_NERD=1 && make install
+# cd nnn && make O_NERD=1 && mkdir ~/bin && cp nnn ~/bin/
 
 # install ohmyzsh
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
