@@ -53,8 +53,9 @@ alias emoji="$EDITOR ~/dotfiles/misc/emoji.txt"
 [ -x "$(command -v git)" ] && alias ga='git add' \
   && alias gaa='git add --all' \
   && alias gb='git branch' \
-  && alias gc='git commit --message' \
-  && alias gca='git commit --amend' \
+  && alias gc='git commit' \
+  && gm() { git commit -m "$*" } \
+  && alias gca='git commit --amend --no-edit' \
   && alias gcx='git commit' \
   && alias gco='git checkout' \
   && alias gcom='git checkout master' \
@@ -69,10 +70,13 @@ alias emoji="$EDITOR ~/dotfiles/misc/emoji.txt"
   && alias gd7='git diff HEAD~7 HEAD~6' \
   && alias gd8='git diff HEAD~8 HEAD~7' \
   && alias gd9='git diff HEAD~9 HEAD~8' \
-  && alias glg='git log --graph --oneline --decorate --all' \
-  && alias glo='git log --pretty=format:"%h %ad %s" --date=short --all' \
+  && alias glg="git log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %C(bold blue)(%ar) %C(green)<%an>%Creset' --abbrev-commit" \
+  && alias glo='git log --pretty=format:"%Cred%h%Creset %C(bold blue)%ad%Creset %s %Cgreen%ae%Creset" --date=short --all' \
   && alias gp='git pull --ff-only' \
   && alias gpl='git pull' \
+  && alias gpush='git push origin' \
+  && alias gre='git rebase' \
+  && alias grc='git rebase --continue' \
   && alias gs='git status --short' \
   && alias gsta='git stash apply' \
   && alias gstd='git stash drop' \
