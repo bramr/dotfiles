@@ -36,6 +36,9 @@ alias emoji="$EDITOR ~/dotfiles/misc/emoji.txt"
   && alias tx='tmux new-session -A -s "$(hostname -s)"' \
   && alias txls='tmux ls'
 
+[ -x "$(command -v jump)" ] && eval "$(jump shell)" \
+  && alias jp='jump pins'
+
 # Docker
 [ -x "$(command -v docker)" ] && alias dk='docker' \
   && alias dkp='docker ps' \
@@ -56,6 +59,7 @@ alias emoji="$EDITOR ~/dotfiles/misc/emoji.txt"
   && alias gco='git checkout' \
   && alias gcom='git checkout master' \
   && alias gd='git diff HEAD' \
+  && alias gds='git diff --staged' \
   && alias gd1='git diff HEAD~1 HEAD' \
   && alias gd2='git diff HEAD~2 HEAD~1' \
   && alias gd3='git diff HEAD~3 HEAD~2' \
