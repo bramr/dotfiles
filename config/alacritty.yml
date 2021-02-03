@@ -23,7 +23,7 @@ bell:
   animation: EaseOutCirc
   duration: 10
   color: '#aaaaaa'
-background_opacity: 0.9
+background_opacity: 0.93
 colors: # (Monokaish)
   # Default colors
   primary:
