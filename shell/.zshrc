@@ -1,14 +1,12 @@
 # Shell specific setup
-if [ -d "$HOME/.oh-my-zsh" ]
+[ -x "$(command -v starship)" ] &&  eval "$(starship init zsh)"
+
+if [ $(basename $SHELL) = "zsh" ]
 then
-  export ZSH="$HOME/.oh-my-zsh"
-  ZSH_THEME="agnoster"
-  #plugins=()
-  source $ZSH/oh-my-zsh.sh
   autoload -z edit-command-line
   zle -N edit-command-line
   bindkey '^K' edit-command-line
-elif [ $(basename $SHELL) == "bash" ]
+elif [ $(basename $SHELL) = "bash" ]
 then
   . ~/dotfiles/shell/git-prompt.sh
   bind "C-k":"edit-and-execute-command"
