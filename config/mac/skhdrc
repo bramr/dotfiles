@@ -1,0 +1,6 @@
+cmd - return : alacritty
+cmd + shift - return : alacritty
+cmd + shift - y : open -n -a "Finder.app"
+cmd + shift - w : open -n -a "Brave Browser.app"
+cmd + shift - r : open -n -a "Firefox.app"
+cmd + shift - i : open -a "IntelliJ IDEA.app"
