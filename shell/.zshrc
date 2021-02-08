@@ -27,6 +27,11 @@ alias dus2='du -h -d 2 | sort -h'
 alias dus3='du -h -d 3 | sort -h'
 alias emoji="$EDITOR ~/dotfiles/misc/emoji.txt"
 
+# replace ls with exa
+[ -x "$(command -v exa)" ] \
+  && alias ls='exa -l' \
+  && alias ll='exa -al'
+
 [ -x "$(command -v nnn)" ] && . ~/dotfiles/shell/nnn.sh
 
 [ -x "$(command -v musikcube)" ] && alias mus='musikcube'
