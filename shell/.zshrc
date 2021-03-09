@@ -16,6 +16,10 @@ then
   export LSCOLORS=gxBxhxDxfxhxhxhxhxcxcx
 fi
 
+# Cargo
+source "$HOME/.cargo/env"
+
+
 # Core aliases
 alias w1='watch -n 1'
 alias ls='ls -lhvG'
@@ -99,6 +103,11 @@ alias emoji="$EDITOR ~/dotfiles/misc/emoji.txt"
   && alias yt="youtube-dl -f 'bestvideo[ext=mp4]+bestaudio[ext=m4a]/best[ext=mp4]/best' " \
   && alias ytf="youtube-dl -F " \
   && alias yta="youtube-dl -f bestaudio -x --audio-format mp3 --audio-quality 3 "
+
+# Weather
+alias wt="curl \"https://wttr.in/Nijmegen?0qpF\""
+alias wtr="curl \"https://wttr.in/Nijmegen?qnpF\""
+alias wtrx="curl \"https://wttr.in/Nijmegen?qpF\""
 
 case "$OSTYPE" in
   darwin*) . "$HOME/dotfiles/shell/mac.sh" ;;
