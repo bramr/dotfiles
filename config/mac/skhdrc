@@ -1,6 +1,6 @@
 cmd - return : alacritty
 cmd + shift - return : alacritty
-cmd + shift - 9 : ~/bin/lime
+cmd + shift - 9 : limelight
 cmd + shift - 0 : killall limelight
 cmd + shift - y : open -n -a "Finder.app"
 cmd + shift - w : open -n -a "Brave Browser.app"
