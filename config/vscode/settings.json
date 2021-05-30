@@ -6,7 +6,8 @@
     "editor.tabSize": 2
   },
   "[json]": {
-    "editor.tabSize": 2
+    "editor.tabSize": 2,
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
   "[java]": {
     "editor.tabSize": 2,
@@ -66,5 +67,7 @@
   "editor.useTabStops": false,
 "editor.detectIndentation": false,
 "editor.renderWhitespace": "all",
-"window.nativeTabs": true
+"window.nativeTabs": true,
+"editor.suggestSelection": "first",
+"vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue"
 }
