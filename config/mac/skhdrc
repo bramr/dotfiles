@@ -1,4 +1,3 @@
-cmd - return : alacritty
 cmd + shift - return : alacritty
 cmd + shift - 9 : limelight
 cmd + shift - 0 : killall limelight

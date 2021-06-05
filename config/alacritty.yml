@@ -64,8 +64,10 @@ mouse:
   double_click: { threshold: 300 }
   triple_click: { threshold: 300 }
   hide_when_typing: true
-  url:
-    launcher:
-      program: open
+  hints:
+    enabled:
+      regex: "(ipfs:|ipns:|magnet:|mailto:|gemini:|gopher:|https:|http:|news:|file:|git:|ssh:|ftp:)\
+              [^\u0000-\u001F\u007F-\u009F<>\"\\s{-}\\^⟨⟩`]+"
+      command: open
 mouse_bindings:
   - { mouse: Middle, action: Copy}
