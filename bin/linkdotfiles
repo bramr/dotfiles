@@ -8,6 +8,7 @@ ln -s ~/dotfiles/shell/.zshenv ~/.zshenv
 ln -s ~/dotfiles/shell/.zshrc ~/.zshrc
 mkdir -p ~/.config/alacritty
 ln -s ~/dotfiles/config/alacritty.yml ~/.config/alacritty/alacritty.yml
+ln -s ~/dotfiles/neovim ~/.config/nvim
 mkdir ~/.vim
 ln -s ~/dotfiles/vim/.vimrc ~/.vimrc
 
