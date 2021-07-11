@@ -35,13 +35,24 @@ return require("packer").startup(function(use)
 
   -- Other
   use {
-      "numtostr/FTerm.nvim",
-      config = function()
-          require("FTerm").setup( {})
-      end
+    "numtostr/FTerm.nvim",
+    config = function()
+      require("FTerm").setup( {})
+    end
   }
   use "bronson/vim-trailing-whitespace"
-
+  use {
+    'lewis6991/gitsigns.nvim',
+    requires = {
+      'nvim-lua/plenary.nvim'
+    },
+    config = function()
+      require('gitsigns').setup()
+    end
+  }
+  require('gitsigns').setup()
+  use 'kyazdani42/nvim-web-devicons'
+  use 'kyazdani42/nvim-tree.lua'
 
   -- Telescope
   use {

@@ -1,7 +1,7 @@
 local cmd = vim.cmd
 
 vim.g.tokyonight_style = 'night'
-cmd'colorscheme tokyonight'
+cmd('colorscheme tokyonight')
 
 vim.o.title = true
 TERMINAL = vim.fn.expand('$TERMINAL')
@@ -33,7 +33,7 @@ vim.o.showmode = false -- We don't need to see things like -- INSERT -- anymore
 -- vim.o.writebackup = false -- This is recommended by coc
 vim.wo.signcolumn = "yes" -- Always show the signcolumn, otherwise it would shift the text each time
 vim.o.updatetime = 100 -- Faster completion
-vim.o.timeoutlen = 1000 -- By default timeoutlen is 1000 ms
+vim.o.timeoutlen = 500 -- By default timeoutlen is 1000 ms
 vim.o.clipboard = "unnamedplus" -- Copy paste between vim and everything else
 -- vim.g.nvim_tree_disable_netrw = O.nvim_tree_disable_netrw -- enable netrw for remote gx gf support (must be set before plugin's packadd)
 vim.g.loaded_netrwPlugin = 1 -- needed for netrw gx command to open remote links in browser
@@ -48,10 +48,10 @@ cmd('set shortmess+=c')
 -- Treesitter support
 require'nvim-treesitter.configs'.setup {
   ensure_installed = {
-    "bash", "c", "cmake", "css", "dockerfile", "go", "gomod", "html", "java", "javascript", 
+    "bash", "c", "cmake", "css", "dockerfile", "go", "gomod", "html", "java", "javascript",
     "json", "lua", "php", "python", "regex", "rust", "typescript", "vue", "yaml"
-  }, 
-  ignore_install = { }, 
+  },
+  ignore_install = { },
   highlight = {
     enable = true,
     disable = { },
