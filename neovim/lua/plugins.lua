@@ -60,7 +60,7 @@ return require("packer").startup(function(use)
     requires = {{'nvim-lua/popup.nvim'}, {'nvim-lua/plenary.nvim'}}
   }
 
-  -- Whick key
+  -- Which key
   use {
     "folke/which-key.nvim",
     config = function()
@@ -69,5 +69,8 @@ return require("packer").startup(function(use)
       }
     end
   }
+
+  use 'windwp/windline.nvim'
+  require('wlsample.bubble')
 
 end)

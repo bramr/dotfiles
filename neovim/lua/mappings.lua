@@ -31,6 +31,7 @@ wk.register({
   f = {
     name = '  Find Stuff',
     f = { '<cmd>Telescope find_files<CR>', 'Find files'},
+    F = { '<cmd>Telescope find_files find_command=rg,--ignore,--hidden,--files prompt_prefix=.> <CR>', 'Find files (hidden)'},
     b = { '<cmd>Telescope buffers<CR>', 'Find buffer'},
     r = { [[<cmd>lua require('telescope.builtin').live_grep()<CR>]], 'Ripgrep'},
     h = { [[<cmd>lua require('telescope.builtin').help_tags()<CR>]], 'Help tags'},

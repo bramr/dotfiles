@@ -16,10 +16,6 @@ then
   export LSCOLORS=gxBxhxDxfxhxhxhxhxcxcx
 fi
 
-# Cargo
-source "$HOME/.cargo/env"
-
-
 # Core aliases
 alias w1='watch -n 1'
 alias ls='ls -lhvG'
@@ -115,5 +111,10 @@ case "$OSTYPE" in
 esac
 
 [ -f "$HOME/.local.sh" ] && . "$HOME/.local.sh"
+
+# Cargo
+[ -x "$(command -v cargo)" ] \
+  && source "$HOME/.cargo/env"
+
 
 echo "👾👾👾 $(basename $SHELL) config loaded 👾👾👾"
