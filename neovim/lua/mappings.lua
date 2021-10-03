@@ -37,7 +37,8 @@ wk.register({
     h = { [[<cmd>lua require('telescope.builtin').help_tags()<CR>]], 'Help tags'},
     c = { [[<cmd>lua require('telescope.builtin').git_commits()<CR>]], 'Git commits'},
     g = { [[<cmd>lua require('telescope.builtin').git_files()<CR>]], 'Git files'},
-    l = { [[<cmd>lua require('telescope.builtin').lsp_workspace_diagnostics()<CR>]], 'Workspace diagnostics'}
+    l = { [[<cmd>lua require('telescope.builtin').lsp_workspace_diagnostics()<CR>]], 'Workspace diagnostics'},
+    t = { '<cmd>NvimTreeToggle<CR>', 'Toggle filebrowser'},
   },
   l = {
     name = '  Coding',
@@ -49,11 +50,25 @@ wk.register({
     d = {[[<cmd>lua require('lspsaga.diagnostic').show_line_diagnostics()<CR>]],"Line disagnostics"},
     f = {[[<cmd>lua vim.lsp.buf.formatting()<CR>]],"Formatting (LSP)"},
     w = {[[<cmd>lua vim.lsp.buf.formatting()<CR>]],"Fix trailing whitespace"},
+    g = {'<cmd>lua vim.lsp.buf.declaration()<CR>',"Goto declaration"},
+    G = {'<cmd>lua vim.lsp.buf.definition()<CR>',"Goto definition"},
   },
   g = {
-    name = '  Goto',
-    d = {'<cmd>lua vim.lsp.buf.declaration()<CR>',"Goto declaration"},
-    D = {'<cmd>lua vim.lsp.buf.definition()<CR>',"Goto definition"},
+    name = '  Golang',
+    b = {[[<cmd>GoBreakToggle<CR>]],"Toggle breakpoint"},
+    d = {[[<cmd>GoDebug<CR>]],"Debug"},
+    f = {[[<cmd>GoFmt<CR>]],"Format"},
+    i = {[[<cmd>GoImport<CR>]],"Import"},
+    l = {[[<cmd>GoLint<CR>]],"Lint"},
+    r = {[[<cmd>GoRun<CR>]],"Run"},
+    t = {
+      name = '  Test',
+      a = {[[<cmd>GoAddTest<CR>]], "Add"},
+      r = {[[<cmd>GoTest<CR>]], "Run"},
+      f = {[[<cmd>GoTestFile<CR>]], "Run file"},
+      n = {[[<cmd>GoTestFile<CR>]], "Run function"},
+    },
+    x = {[[<cmd>GoDbgStop<CR>]],"Stop debug"},
   },
   s = {
     name = ' ﬜ Spelling',

@@ -37,9 +37,10 @@ return require("packer").startup(function(use)
   use {
     "numtostr/FTerm.nvim",
     config = function()
-      require("FTerm").setup( {})
+      require("FTerm").setup()
     end
   }
+
   use "bronson/vim-trailing-whitespace"
   use {
     'lewis6991/gitsigns.nvim',
@@ -50,7 +51,6 @@ return require("packer").startup(function(use)
       require('gitsigns').setup()
     end
   }
-  require('gitsigns').setup()
   use 'kyazdani42/nvim-web-devicons'
   use 'kyazdani42/nvim-tree.lua'
 
@@ -69,6 +69,19 @@ return require("packer").startup(function(use)
       }
     end
   }
+
+  -- Golang
+  use {
+    "rcarriga/nvim-dap-ui",
+    requires = {"mfussenegger/nvim-dap"}
+  }
+  use 'theHamsta/nvim-dap-virtual-text'
+  use {"ray-x/go.nvim",
+      config = function()
+        require('go').setup()
+      end
+  }
+
 
   use 'windwp/windline.nvim'
   require('wlsample.bubble')
