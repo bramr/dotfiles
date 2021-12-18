@@ -5,8 +5,14 @@
 --   /_/ /_/\___/\____/|___/_/_/ /_/ /_/
 --
 
-require('plugins')
-require('settings')
-require('mappings')
-require('config-lsp')
---require('windline')
+require "bram.options"
+require "bram.mappings"
+require "bram.plugins"
+require "bram.colors"
+require "bram.cmp"
+require "bram.lsp"
+require "bram.telescope"
+require "bram.treesitter"
+require "bram.autopairs"
+require "bram.terminal"
+require "bram.splash"

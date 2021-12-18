@@ -4,28 +4,71 @@ local nr = { noremap = true }
 local nrs = { noremap = true, silent = true }
 local nrx = { noremap = true, expr = true }
 
+--Remap space as leader key
+map("", "<Space>", "<Nop>", nrs)
+vim.g.mapleader = " "
+vim.g.maplocalleader = " "
 
--- Map leader to space
-vim.g.mapleader = ' '
+-- Modes
+--   normal_mode = "n",
+--   insert_mode = "i",
+--   visual_mode = "v",
+--   visual_block_mode = "x",
+--   term_mode = "t",
+--   command_mode = "c",
+
+-- Faster scrolling
 map('n', 'J', '10j', nr)
 map('n', 'K', '10k', nr)
-map('n', '<Space>', '', nrs)
-
--- General
-map('n', '<c-o>', '<cmd>set invhlsearch<CR>', nr)
 
 -- Tabs
 map('n', '<Tab>', ':tabnext<CR>', nr)
 map('n', '<S-Tab>', ':tabprevious<CR>', nr)
 
-map('n', '<c-t>', '<cmd>lua require("FTerm").toggle()<CR>', nrs)
-map('t', '<c-t>', '<C-\\><C-n><CMD>lua require("FTerm").toggle()<CR>', nrs)
+-- Better window navigation
+map("n", "<C-h>", "<C-w>h", nrs)
+map("n", "<C-j>", "<C-w>j", nrs)
+map("n", "<C-k>", "<C-w>k", nrs)
+map("n", "<C-l>", "<C-w>l", nrs)
 
-local wk = require("which-key")
+-- Navigate buffers
+map("n", "<S-l>", ":bnext<CR>", nrs)
+map("n", "<S-h>", ":bprevious<CR>", nrs)
+
+-- Stay in indent mode
+map("v", "<", "<gv", nrs)
+map("v", ">", ">gv", nrs)
+
+map('n', '+', 'gg=G<CR>gi', nrs) -- reformat buffer
+
+map('n', '<C-j>', [[<cmd>lua require('lspsaga.action').smart_scroll_with_saga(1)<CR>]], nrs)
+map('n', '<C-k>', [[<cmd>lua require('lspsaga.action').smart_scroll_with_saga(-1)<CR>]], nrs)
+
+-- Completion
+map('i', '<Tab>',  'pumvisible() ? "\\<C-n>" : "\\<Tab>"', nrx)
+map('i', '<S-Tab>', 'pumvisible() ? "\\<C-p>" : "\\<S-Tab>"', nrx)
+
+-- Spelling
+map('n', 'z-', '1z=', nr);
+
+-- WhichKey mappings
+local status_ok, wk = pcall(require, "which-key")
+if not status_ok then
+  return
+end
 
 wk.register({
   ['<space>'] = {'<cmd>Telescope find_files<CR>', ' Find files'},
-  t = {'<cmd>lua require("FTerm").toggle()<CR>', ' Toggle Terminal'},
+  t = {
+    name = " Terminal",
+    c = { '<cmd>lua _HTOP_TOGGLE()<cr>', ' Htop' },
+    f = { '<cmd>ToggleTerm direction=float<cr>', ' Terminal' },
+    g = { '<cmd>lua _LAZYGIT_TOGGLE()<cr>', ' Lazygit' },
+    h = { '<cmd>ToggleTerm size=10 direction=horizontal<cr>', ' Horizontal' },
+    t = { '<cmd>ToggleTerm direction=float<cr>', ' Float' },
+    v = { '<cmd>ToggleTerm size=80 direction=vertical<cr>', ' Vertical' },
+  },
+  e = { "<cmd>NvimTreeToggle<CR>", "פּ Explorer" },
   w = {'<cmd>tabnew<CR>', ' Tab create'},
   q = {'<cmd>tabclose<CR>', ' Tab close'},
   f = {
@@ -78,14 +121,4 @@ wk.register({
   }
 }, { prefix = '<Leader>' })
 
-map('n', '+', 'gg=G<CR>gi', nrs) -- reformat buffer
 
-map('n', '<C-j>', [[<cmd>lua require('lspsaga.action').smart_scroll_with_saga(1)<CR>]], nrs)
-map('n', '<C-k>', [[<cmd>lua require('lspsaga.action').smart_scroll_with_saga(-1)<CR>]], nrs)
-
--- Completion
-map('i', '<Tab>',  'pumvisible() ? "\\<C-n>" : "\\<Tab>"', nrx)
-map('i', '<S-Tab>', 'pumvisible() ? "\\<C-p>" : "\\<S-Tab>"', nrx)
-
--- Spelling
-map('n', 'z-', '1z=', nr);
