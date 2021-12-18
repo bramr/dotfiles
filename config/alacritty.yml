@@ -2,6 +2,7 @@ env:
   TERM: xterm-256color
 window:
   decorations: buttonless
+  opacity: 0.90
   padding:
     x: 2
     y: 2
@@ -23,7 +24,6 @@ bell:
   animation: EaseOutCirc
   duration: 10
   color: '#aaaaaa'
-background_opacity: 0.93
 colors: # (Monokaish)
   # Default colors
   primary:
