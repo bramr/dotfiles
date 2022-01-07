@@ -26,10 +26,10 @@ map('n', '<Tab>', ':tabnext<CR>', nr)
 map('n', '<S-Tab>', ':tabprevious<CR>', nr)
 
 -- Better window navigation
-map("n", "<C-h>", "<C-w>h", nrs)
-map("n", "<C-j>", "<C-w>j", nrs)
-map("n", "<C-k>", "<C-w>k", nrs)
-map("n", "<C-l>", "<C-w>l", nrs)
+map("n", "<C-h>", "<C-w>h", nr)
+map("n", "<C-j>", "<C-w>j", nr)
+map("n", "<C-k>", "<C-w>k", nr)
+map("n", "<C-l>", "<C-w>l", nr)
 
 -- Navigate buffers
 map("n", "<S-l>", ":bnext<CR>", nrs)

@@ -46,18 +46,17 @@ return packer.startup(function(use)
   use "nvim-lua/plenary.nvim" -- Useful lua functions used ny lots of plugins
 
   -- Dark colorschemes
-  use "mcchrish/zenbones.nvim"
   use "nlknguyen/papercolor-theme"
-  use "n1ghtmare/noirblaze-vim"
   use "tomasr/molokai"
   use "folke/tokyonight.nvim"
+  use "vv9k/vim-github-dark"
 
   -- cmp plugins
   use "hrsh7th/nvim-cmp" -- The completion plugin
   use "hrsh7th/cmp-buffer" -- buffer completions
   use "hrsh7th/cmp-path" -- path completions
   use "hrsh7th/cmp-cmdline" -- cmdline completions
-  use "saadparwaiz1/cmp_luasnip" -- snippet completions
+  -- use "saadparwaiz1/cmp_luasnip" -- snippet completions
   use "hrsh7th/cmp-nvim-lsp" -- LSP completions
 
   -- snippets
