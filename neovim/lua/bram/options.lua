@@ -30,6 +30,7 @@ o.cmdheight = 2 -- more space to display messages
 
 cmd('let &titleold="'..TERMINAL..'"')
 cmd 'set whichwrap+=<,>,[,],h,l' -- move to next line with theses keys
+cmd 'set guifont=Hack\\ Nerd\\ Font:h16' -- set font for neovide
 cmd 'syntax on' -- syntax highlighting
 
 wo.wrap = false -- Display long lines as just one line

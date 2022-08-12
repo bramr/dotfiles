@@ -45,8 +45,10 @@ return packer.startup(function(use)
   use "nvim-lua/popup.nvim" -- An implementation of the Popup API from vim in Neovim
   use "nvim-lua/plenary.nvim" -- Useful lua functions used ny lots of plugins
 
+  -- Fast buffer navigation
+  use 'ggandor/lightspeed.nvim'
+
   -- Dark colorschemes
-  use "nlknguyen/papercolor-theme"
   use "tomasr/molokai"
   use "folke/tokyonight.nvim"
   use "vv9k/vim-github-dark"
@@ -56,7 +58,7 @@ return packer.startup(function(use)
   use "hrsh7th/cmp-buffer" -- buffer completions
   use "hrsh7th/cmp-path" -- path completions
   use "hrsh7th/cmp-cmdline" -- cmdline completions
-  -- use "saadparwaiz1/cmp_luasnip" -- snippet completions
+  use "saadparwaiz1/cmp_luasnip" -- snippet completions
   use "hrsh7th/cmp-nvim-lsp" -- LSP completions
 
   -- snippets
@@ -72,12 +74,6 @@ return packer.startup(function(use)
 
   -- Telescope
   use "nvim-telescope/telescope.nvim"
-
-  -- Treesitter
-  use {
-    "nvim-treesitter/nvim-treesitter",
-    run = ":TSUpdate",
-  }
 
   -- Autopairs
   use "windwp/nvim-autopairs"
@@ -107,7 +103,7 @@ return packer.startup(function(use)
     requires = {
       'kyazdani42/nvim-web-devicons', -- optional, for file icon
     },
-    config = function() require'nvim-tree'.setup {} end
+    config = function() require 'nvim-tree'.setup {} end
   }
 
   -- Windline bubble
@@ -124,6 +120,13 @@ return packer.startup(function(use)
   -- Speed up startup
   use 'lewis6991/impatient.nvim'
 
+
+  -- Syntax highlighting
+  use {
+    'nvim-treesitter/nvim-treesitter',
+    run = ':TSUpdate'
+  }
+
   -- Which key
   use {
     "folke/which-key.nvim",
@@ -134,17 +137,30 @@ return packer.startup(function(use)
     end
   }
 
-  -- Golang
+  -- Rust language
   use {
-    "rcarriga/nvim-dap-ui",
-    requires = {"mfussenegger/nvim-dap"}
+    "simrat39/rust-tools.nvim",
+    config = function()
+      require('rust-tools').setup({})
+    end
   }
-  use 'theHamsta/nvim-dap-virtual-text'
-  use {"ray-x/go.nvim",
-      config = function()
-        require('go').setup()
-      end
+  use "rust-lang/rust.vim"
+
+
+  -- Debugging
+  use "mfussenegger/nvim-dap"
+  use { "rcarriga/nvim-dap-ui",
+    requires = { "mfussenegger/nvim-dap" },
+    config = function()
+      require('dapui').setup()
+    end
   }
+  --use 'theHamsta/nvim-dap-virtual-text'
+  --use {"ray-x/go.nvim",
+  --    config = function()
+  --      require('go').setup()
+  --    end
+  --}
 
   -- Trailing whitespace
   use "bronson/vim-trailing-whitespace"
@@ -158,4 +174,3 @@ return packer.startup(function(use)
     require("packer").sync()
   end
 end)
-

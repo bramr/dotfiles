@@ -1,12 +1,11 @@
-vim.cmd [[
-try
-  let g:gh_color = "soft"
-  let g:rehash256 = 1
-  let g:tokyonight_style = "night"
-  colorscheme tokyonight
-catch /^Vim\%((\a\+)\)\=:E185/
-  colorscheme default
-  set background=dark
-endtry
-]]
 
+--vim.g.tokyonight_style = "night"
+vim.g.tokyonight_style = "storm"
+vim.o.background = "dark"
+vim.g.tokyonight_sidebars = { "terminal", "packer" }
+
+vim.cmd[[colorscheme tokyonight]]
+
+-- vim.g.tokyonight_day_brightness = 0.2
+-- vim.g.tokyonight_style = "day"
+-- vim.o.background = "light"

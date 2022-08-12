@@ -96,6 +96,26 @@ wk.register({
     g = {'<cmd>lua vim.lsp.buf.declaration()<CR>',"Goto declaration"},
     G = {'<cmd>lua vim.lsp.buf.definition()<CR>',"Goto definition"},
   },
+  d = {
+    name = '  Debug',
+    b = {[[<cmd>DapToggleBreakpoint<CR>]], "Toggle breakpoint"},
+    c = {[[<cmd>DapContinue<CR>]], "Continue"},
+    i = {[[<cmd>DapStepInto<CR>]], "Step into"},
+    o = {[[<cmd>DapStepOver<CR>]], "Step over"},
+    t = {[[<cmd>DapStepOut<CR>]], "Step out"},
+    x = {[[<cmd>DapTerminate<CR>]], "Terminate"},
+    y = {[[<cmd>DapToggleRepl<CR>]], "Toggle repl"},
+    w = {[[<cmd>lua require("dapui").toggle()<CR>]], "Toggle UI"}
+  },
+  r = {
+    name = '  Rust',
+    c = {[[<cmd>lua require('rust-tools').open_cargo_toml.open_cargo_toml()<CR>]],"Open cargo.toml"},
+    f = {[[<cmd>RustFmt<CR>]],"Format"},
+    h = {[[<cmd>lua require('rust-tools').hover_actions.hover_actions()<CR>]],"Hover"},
+    p = {[[<cmd>lua require('rust-tools').parent_module.parent_module()<CR>]],"Parent"},
+    r = {[[<cmd>lua require('rust-tools').runnables.runnables()<CR>]],"Runnables"},
+    t = {[[<cmd>RustTest<CR>]],"Run Test"},
+  },
   g = {
     name = '  Golang',
     b = {[[<cmd>GoBreakToggle<CR>]],"Toggle breakpoint"},
