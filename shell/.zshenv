@@ -2,9 +2,9 @@ export DEFAULT_USER=`whoami`
 
 export PATH=~/bin:~/dotfiles/bin:/opt/homebrew/bin:/opt/local/bin:/opt/local/sbin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin
 
-if [ -x "$(command -v vim)" ]
+if [ -x "$(command -v nvim)" ]
 then
-	export VISUAL=vim
+	export VISUAL=nvim
 	export EDITOR="$VISUAL"
 else
 	export VISUAL=vi

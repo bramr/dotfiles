@@ -1,11 +1,23 @@
-# Shell specific setup
-[ -x "$(command -v starship)" ] &&  eval "$(starship init zsh)"
+# Use fish if available on interactive shells.
+[[ $- == *i* ]] && [ -x "$(command -v fish)" ] && fish
 
 if [ $(basename $SHELL) = "zsh" ]
 then
+  # Shell specific setup
+  [ -x "$(command -v starship)" ] &&  eval "$(starship init zsh)"
+
   autoload -z edit-command-line
   zle -N edit-command-line
+  bindkey -v
   bindkey '^K' edit-command-line
+  bindkey '^R' history-incremental-search-backward
+
+  # History
+  HISTFILE=~/.zsh_history
+  HISTSIZE=100000
+  SAVEHIST=100000
+  setopt SHARE_HISTORY
+
 elif [ $(basename $SHELL) = "bash" ]
 then
   . ~/dotfiles/shell/git-prompt.sh
@@ -29,8 +41,8 @@ alias emoji="$EDITOR ~/dotfiles/misc/emoji.txt"
 
 # replace ls with exa
 [ -x "$(command -v exa)" ] \
-  && alias ls='exa -l' \
-  && alias ll='exa -al'
+  && alias ls='exa -l --icons --group-directories-first --git' \
+  && alias ll='exa -al --icons --group-directories-first --git'
 
 [ -x "$(command -v nnn)" ] && . ~/dotfiles/shell/nnn.sh
 
@@ -51,6 +63,7 @@ alias emoji="$EDITOR ~/dotfiles/misc/emoji.txt"
 [ -x "$(command -v docker-compose)" ] && alias dc='docker-compose' \
   && alias dcup='docker-compose up -d' \
   && alias dclog='docker-compose logs -f'
+
 
 # Git
 [ -x "$(command -v git)" ] && alias ga='git add' \
@@ -87,18 +100,11 @@ alias emoji="$EDITOR ~/dotfiles/misc/emoji.txt"
   && alias gstl='git stash list' \
   && alias gsts='git stash save'
 
-# Spell check
-[ -x "$(command -v aspell)" ] \
-  && alias sc='aspell --lang=en -a' \
-  && alias scn='aspell --lang=nl -a' \
-  && alias scf='aspell --lang=en -f' \
-  && alias scfn='aspell --lang=nl -f' \
-
 # Youtube
-[ -x "$(command -v youtube-dl)" ] \
-  && alias yt="youtube-dl -f 'bestvideo[ext=mp4]+bestaudio[ext=m4a]/best[ext=mp4]/best' " \
-  && alias ytf="youtube-dl -F " \
-  && alias yta="youtube-dl -f bestaudio -x --audio-format mp3 --audio-quality 3 "
+[ -x "$(command -v yt-dlp)" ] \
+  && alias yt="yt-dlp -f 'bestvideo[ext=mp4]+bestaudio[ext=m4a]/best[ext=mp4]/best' " \
+  && alias ytf="yt-dlp -F " \
+  && alias yta="yt-dlp -f bestaudio -x --audio-format mp3 --audio-quality 3 "
 
 # Weather
 alias wt="curl \"https://wttr.in/Nijmegen?0qpF\""
@@ -118,3 +124,4 @@ esac
 
 
 echo "👾👾👾 $(basename $SHELL) config loaded 👾👾👾"
+

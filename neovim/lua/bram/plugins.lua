@@ -126,6 +126,7 @@ return packer.startup(function(use)
     'nvim-treesitter/nvim-treesitter',
     run = ':TSUpdate'
   }
+  use 'nickeb96/fish.vim'
 
   -- Which key
   use {
@@ -156,11 +157,11 @@ return packer.startup(function(use)
     end
   }
   --use 'theHamsta/nvim-dap-virtual-text'
-  --use {"ray-x/go.nvim",
-  --    config = function()
-  --      require('go').setup()
-  --    end
-  --}
+  use {"ray-x/go.nvim",
+      config = function()
+        require('go').setup()
+      end
+  }
 
   -- Trailing whitespace
   use "bronson/vim-trailing-whitespace"
