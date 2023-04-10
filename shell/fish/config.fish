@@ -83,5 +83,9 @@ if status is-interactive
 end
 
 function fish_greeting
-  echo "Fish shell loaded. 🐟🐠🐡"
+  if type -q figlet && type -q lolcat
+    figlet -f ~/dotfiles/shell/invita.flf " fish" | lolcat
+  else
+    echo "Fish shell loaded. 🐟🐠🐡"
+  end
 end

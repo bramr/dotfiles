@@ -122,6 +122,9 @@ esac
 [ -x "$(command -v cargo)" ] \
   && source "$HOME/.cargo/env"
 
-
-echo "👾👾👾 $(basename $SHELL) config loaded 👾👾👾"
-
+if [[ $- == *i* ]]
+then
+  [ -x "$(command -v figlet)" ] && [ -x "$(command -v lolcat)" ] &&
+    figlet  -f ~/dotfiles/shell/invita.flf "$(basename $SHELL)" | lolcat ||
+    echo "👾👾👾 $(basename $SHELL) config loaded 👾👾👾"
+fi
