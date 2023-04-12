@@ -35,6 +35,10 @@ if status is-interactive
     abbr -a dpx docker ps --filter "status=exited"
   end
 
+  if type -q docker-compose
+    abbr -a dc docker-compose
+  end
+
   if type -q git
     abbr -a gaa git add --all
     abbr -a gb git branch
@@ -72,14 +76,24 @@ if status is-interactive
 
 # watch youtube
   if type -q yt-dlp
-    abbr yt yt-dlp -f 'bestvideo[ext=mp4]+bestaudio[ext=m4a]/best[ext=mp4]/best'
-    abbr yta yt-dlp -f bestaudio -x --audio-format mp3 --audio-quality 3
+    abbr -a yt yt-dlp -f 'bestvideo[ext=mp4]+bestaudio[ext=m4a]/best[ext=mp4]/best'
+    abbr -a yta yt-dlp -f bestaudio -x --audio-format mp3 --audio-quality 3
   end
 
   if type -q curl
-    abbr wt "curl \"https://wttr.in/Nijmegen?qpF\""
-    abbr wtn "curl \"https://wttr.in/Nijmegen?0qpF\""
+    alias wt "curl \"https://wttr.in/Nijmegen?qpF\""
+    alias wtn "curl \"https://wttr.in/Nijmegen?0qpF\""
   end
+
+  if type -q nvim
+    alias vi nvim
+    alias vim nvim
+  end
+end
+
+# option for local system changes
+if test -f ~/.local.fish
+  source ~/.local.fish
 end
 
 function fish_greeting

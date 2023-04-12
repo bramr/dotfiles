@@ -1,5 +1,5 @@
-# Use fish if available on interactive shells.
-[[ $- == *i* ]] && [ -x "$(command -v fish)" ] && fish
+# Use fish if available only on interactive alacritty.
+[[ $- == *i* ]] && [[ $TERM_PROGRAM = "alacritty" ]] && [ -x "$(command -v fish)" ] && fish
 
 if [ $(basename $SHELL) = "zsh" ]
 then
@@ -43,6 +43,11 @@ alias emoji="$EDITOR ~/dotfiles/misc/emoji.txt"
 [ -x "$(command -v exa)" ] \
   && alias ls='exa -l --icons --group-directories-first --git' \
   && alias ll='exa -al --icons --group-directories-first --git'
+
+# always use neovim if available
+[ -x "$(command -v nvim)" ] \
+  && alias vim='nvim' \
+  && alias vi='nvim'
 
 [ -x "$(command -v nnn)" ] && . ~/dotfiles/shell/nnn.sh
 
