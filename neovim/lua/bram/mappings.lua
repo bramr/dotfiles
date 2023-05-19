@@ -59,23 +59,18 @@ end
 
 wk.register({
   ['<space>'] = {'<cmd>Telescope find_files<CR>', ' Find files'},
-  t = {
-    name = " Terminal",
-    c = { '<cmd>lua _HTOP_TOGGLE()<cr>', ' Htop' },
-    f = { '<cmd>ToggleTerm direction=float<cr>', ' Terminal' },
-    g = { '<cmd>lua _LAZYGIT_TOGGLE()<cr>', ' Lazygit' },
-    h = { '<cmd>ToggleTerm size=10 direction=horizontal<cr>', ' Horizontal' },
-    t = { '<cmd>ToggleTerm direction=float<cr>', ' Float' },
-    v = { '<cmd>ToggleTerm size=80 direction=vertical<cr>', ' Vertical' },
-  },
-  e = { "<cmd>NvimTreeToggle<CR>", "פּ Explorer" },
-  w = {'<cmd>tabnew<CR>', ' Tab create'},
+  b = { '<cmd>Telescope buffers<CR>', '󰮗 Find buffer'},
+  t = { '<cmd>ToggleTerm size=24 direction=horizontal<cr>', ' Terminal' },
+  p = { '<cmd>lua vim.diagnostic.setqflist()<CR>', ' Show problems'},
+  e = { "<cmd>NvimTreeToggle<CR>", "󰙅 Explorer" },
+  w = {'<cmd>tabnew<CR>', '󰎔 Tab create'},
   q = {'<cmd>tabclose<CR>', ' Tab close'},
   f = {
-    name = '  Find Stuff',
+    name = ' Find Stuff',
     f = { '<cmd>Telescope find_files<CR>', 'Find files'},
     F = { '<cmd>Telescope find_files find_command=rg,--ignore,--hidden,--files prompt_prefix=.> <CR>', 'Find files (hidden)'},
     b = { '<cmd>Telescope buffers<CR>', 'Find buffer'},
+    p = { [[<cmd>lua require('telescope.builtin').diagnostics()<CR>]], ' Find problems'},
     r = { [[<cmd>lua require('telescope.builtin').live_grep()<CR>]], 'Ripgrep'},
     h = { [[<cmd>lua require('telescope.builtin').help_tags()<CR>]], 'Help tags'},
     c = { [[<cmd>lua require('telescope.builtin').git_commits()<CR>]], 'Git commits'},
@@ -117,7 +112,7 @@ wk.register({
     t = {[[<cmd>RustTest<CR>]],"Run Test"},
   },
   g = {
-    name = '  Golang',
+    name = '  Golang',
     b = {[[<cmd>GoBreakToggle<CR>]],"Toggle breakpoint"},
     d = {[[<cmd>GoDebug<CR>]],"Debug"},
     f = {[[<cmd>GoFmt<CR>]],"Format"},
@@ -134,11 +129,31 @@ wk.register({
     x = {[[<cmd>GoDbgStop<CR>]],"Stop debug"},
   },
   s = {
-    name = ' ﬜ Spelling',
+    name = ' 󰓆 Spelling',
     e = {'<cmd>setlocal spell spelllang=en_us<CR>', 'English (US)'},
     n = {'<cmd>setlocal spell spelllang=nl<CR>', 'Nederlands'},
     d = {'<cmd>setlocal spell spelllang=<CR>', 'Disable'},
+  },
+  o = {
+    name = '  Todo',
+    a = {'<cmd>ToDoTxtCapture<CR>', 'Add todo'},
+    e = {'<cmd>e ~/.todo.txt<CR>', 'Open file'},
+    n = {'<cmd>e ~/.todo-txt-notes.md<CR>', 'Todo notes'},
+    l = {'<cmd>ToDoTxtTasksToggle<CR>', 'Toggle list'},
+  },
+  v = {'<cmd>vsplit<CR>', '  Split vertical'},
+  x = {'<C-w>r', '  Swap split'},
+  z = {
+    name = '  Misc',
+    e = { '<cmd>view ~/dotfiles/misc/emoji.txt<cr>', ' Emoji cheat sheet' },
+    g = { '<cmd>lua _LAZYGIT_TOGGLE()<cr>', ' Lazygit' },
+    h = { '<cmd>lua _HTOP_TOGGLE()<cr>', ' Htop' },
+    m = { '<cmd>view ~/dotfiles/misc/markdown.md<cr>', ' Markdown cheat sheet' },
+    t = { '<cmd>ToggleTerm direction=float<cr>', ' Terminal' }
   }
+
 }, { prefix = '<Leader>' })
+
+-- Leader shortcuts not in menu
 
 

@@ -10,7 +10,7 @@ local dap = require('dap')
 
 dap.adapters.lldb = {
   type = 'executable',
-  command = '/opt/homebrew/Cellar/llvm/14.0.6_1/bin/lldb-vscode',
+  command = '/usr/bin/lldb',
   name = 'lldb'
 }
 

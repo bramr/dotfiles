@@ -166,6 +166,17 @@ return packer.startup(function(use)
   -- Trailing whitespace
   use "bronson/vim-trailing-whitespace"
 
+  -- TodoTXT support
+  use {
+	  'arnarg/todotxt.nvim',
+	  requires = {'MunifTanjim/nui.nvim'},
+      config = function()
+        require('todotxt-nvim').setup({
+          todo_file = "~/.todo.txt",
+        })
+      end
+  }
+
   -- Splash screan
   use "goolord/alpha-nvim"
 
