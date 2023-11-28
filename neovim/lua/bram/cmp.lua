@@ -51,8 +51,8 @@ cmp.setup {
     end,
   },
   mapping = {
-    ["<C-k>"] = cmp.mapping.select_prev_item(),
-		["<C-j>"] = cmp.mapping.select_next_item(),
+    ["<C-u>"] = cmp.mapping.select_prev_item(),
+		["<C-i>"] = cmp.mapping.select_next_item(),
 		["<Up>"] = cmp.mapping.select_prev_item(),
 		["<Down>"] = cmp.mapping.select_next_item(),
 		["<S-Tab>"] = cmp.mapping.select_prev_item(),

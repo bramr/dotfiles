@@ -1,0 +1,91 @@
+" Emulated Plugins
+set surround
+set NERDTree
+set clipboard+=unnamed
+
+let mapleader = " "
+
+set ignorecase
+set smartcase
+set scrolloff=3
+set visualbell
+
+" Buffer navigation
+map <C-k> <C-w>k
+map <C-j> <C-w>j
+map <C-h> <C-w>h
+map <C-l> <C-w>l
+
+nmap gb <Action>(JumpToLastWindow)
+nmap gd <Action>(GotoDeclaration)
+nmap gf <Action>(GotoFile)
+nmap gi <Action>(GotoImplementation)
+nmap gj <Action>(GotoNextError)
+nmap gk <Action>(GotoPreviousError)
+nmap gs <Action>(GotoSuperMethod)
+nmap gt <Action>(GotoTest)
+nmap gu <Action>(ShowUsages)
+nmap gx <Action>(FileStructurePopup)
+
+" Tabs
+nmap <leader>h <Action>(PreviousTab)
+nmap <leader>l <Action>(NextTab)
+nmap <leader>q <Action>(CloseContent)
+nmap <leader>Q <Action>(ReopenClosedTab)
+
+" Splits manipulation
+nmap <leader>ws <Action>(SplitHorizontally)
+nmap <leader>wv <Action>(SplitVertically)
+nmap <leader>wc <Action>(Unsplit)
+nmap <leader>wC <Action>(UnsplitAll)
+nmap <leader>wd <Action>(OpenEditorInOppositeTabGroup)
+
+" Quick open
+nmap <leader>fa <Action>(GotoAction)
+nmap <leader>f? <Action>(SearchEverywhere)
+nmap <leader>ff <Action>(GotoFile)
+nmap <leader>fc <Action>(GotoClass)
+nmap <leader>fs <Action>(GotoSymbol)
+nmap <leader>fd <Action>(GotoDatabaseObject)
+nmap <leader>fb <Action>(Switcher)
+nmap <leader>fr <Action>(RecentFiles)
+nmap <leader>fR <Action>(RecentChangedFiles)
+nmap <leader>fu <Action>(FindUsages)
+
+nmap <leader>c <Action>(ShowIntentionActions)
+nmap <leader>dd <Action>(ShowErrorDescription)
+nmap <leader>db <Action>(ToggleLineBreakpoint)
+nmap <leader>dr <Action>(Debug)
+
+" Code/Refactorings
+nmap <leader>ra <Action>(RefactoringMenu)
+nmap <leader>rn <Action>(RenameElement)
+nmap <leader>rr <Action>(ReformatCode)
+vmap <leader>rr <Action>(ReformatCode)
+nmap <leader>rD <Action>(FixDocComment)
+vmap <leader>rm <Action>(ExtractMethod)
+nmap <leader>rg <Action>(Generate)
+nmap <leader>ro <Action>(OptimizeImports)
+
+" Terminal
+nmap <leader>T <Action>(ActivateTerminalToolWindow)
+nmap <leader>XX <Action>(IdeaVim.ReloadVimRc.reload)
+nmap <leader>TT <Action>(VimFindActionIdAction)
+
+" Git
+nmap <leader>ga <Action>(Annotate)
+nmap <leader>gh <Action>(Vcs.ShowTabbedFileHistory)
+vmap <leader>gh <Action>(Vcs.ShowHistoryForBlock)
+
+" Search
+nmap <leader>/ <Action>(Find)
+
+" View mode
+map <leader>vf <Action>(ToggleFullScreen)
+map <leader>vv <Action>(ToggleDistractionFreeMode)
+map <leader>vp <Action>(TogglePresentationMode)
+
+" Increase or decrease font size
+nnoremap <C-=> <Action>(EditorIncreaseFontSize)
+nnoremap <C--> <Action>(EditorDecreaseFontSize)
+

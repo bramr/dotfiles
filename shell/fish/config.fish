@@ -16,13 +16,13 @@ if status is-interactive
 
 
   # replace ls with exa
-  if type -q exa
-    abbr -a ls exa -l --icons --group-directories-first --git
-    abbr -a ll exa -al --icons --group-directories-first --git
-    abbr -a lm exa -l --icons --group-directories-first -s mod --git
-    abbr -a lma exa -al --icons --group-directories-first -s mod --git
-    abbr -a lt2 exa -aT -L 2 --icons --group-directories-first --git
-    abbr -a lt3 exa -aT -L 3 --icons --group-directories-first --git
+  if type -q eza
+    abbr -a ls eza -l --icons --group-directories-first --git
+    abbr -a ll eza -al --icons --group-directories-first --git
+    abbr -a lm eza -l --icons --group-directories-first -s mod --git
+    abbr -a lma eza -al --icons --group-directories-first -s mod --git
+    abbr -a lt2 eza -aT -L 2 --icons --group-directories-first --git
+    abbr -a lt3 eza -aT -L 3 --icons --group-directories-first --git
   end
 
   if type -q colima

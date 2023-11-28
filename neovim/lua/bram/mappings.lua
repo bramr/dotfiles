@@ -41,8 +41,8 @@ map("v", ">", ">gv", nrs)
 
 map('n', '+', 'gg=G<CR>gi', nrs) -- reformat buffer
 
-map('n', '<C-j>', [[<cmd>lua require('lspsaga.action').smart_scroll_with_saga(1)<CR>]], nrs)
-map('n', '<C-k>', [[<cmd>lua require('lspsaga.action').smart_scroll_with_saga(-1)<CR>]], nrs)
+map('n', '<C-u>', [[<cmd>lua require('lspsaga.action').smart_scroll_with_saga(1)<CR>]], nrs)
+map('n', '<C-i>', [[<cmd>lua require('lspsaga.action').smart_scroll_with_saga(-1)<CR>]], nrs)
 
 -- Completion
 map('i', '<Tab>',  'pumvisible() ? "\\<C-n>" : "\\<Tab>"', nrx)
@@ -149,6 +149,7 @@ wk.register({
     g = { '<cmd>lua _LAZYGIT_TOGGLE()<cr>', ' Lazygit' },
     h = { '<cmd>lua _HTOP_TOGGLE()<cr>', ' Htop' },
     m = { '<cmd>view ~/dotfiles/misc/markdown.md<cr>', ' Markdown cheat sheet' },
+    s = { '<cmd>w !sudo tee %<cr>', '󰯙 sudo write' },
     t = { '<cmd>ToggleTerm direction=float<cr>', ' Terminal' }
   }
 
