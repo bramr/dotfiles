@@ -17,9 +17,5 @@ ln -s ~/dotfiles/vim/.vimrc ~/.vimrc
 
 ## macos stuff
 [ "$(uname)" == "Darwin" ] && mkdir -p ~/Library/Application\ Support/Code/User \
-  && ln -s ~/dotfiles/config/vscode/settings.json ~/Library/Application\ Support/Code/User/settings.json \
-  && mkdir -p ~/.config/skhd \
-  && ln -s ~/dotfiles/config/mac/skhdrc ~/.config/skhd/skhdrc \
-  && mkdir -p ~/.config/limelight \
-  && ln -s ~/dotfiles/config/mac/limelightrc ~/.config/limelight/limelightrc \
-  && ln -s ~/dotfiles/config/mac/.amethyst ~/.amethyst
+  && ln -s ~/dotfiles/config/mac/.amethyst.yml ~/.amethyst.yml \
+  && ln -s ~/dotfiles/config/vscode/settings.json ~/Library/Application\ Support/Code/User/settings.json

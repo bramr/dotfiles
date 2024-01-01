@@ -10,6 +10,7 @@ with import <nixpkgs> {}; [
   fd
   figlet
   fish
+  go
   git
   gnumake
   htop
@@ -25,6 +26,7 @@ with import <nixpkgs> {}; [
   neofetch
   nmap
   nnn
+  ollama
   php
   php82Packages.composer
   php82Packages.phpcbf
