@@ -8,15 +8,14 @@ mod1:
   - control
   - option
 mod2:
-  - option
-mod3:
+  - control
   - option
   - shift
 cycle-layout:
-  mod: mod2
+  mod: mod1
   key: space
 cycle-layout-backward:
-  mod: mod3
+  mod: mod2
   key: space
 
 # Shrink the main pane by a percentage of the screen dimension as defined by window-resize-step. Note that not all layouts respond to this command.
@@ -67,7 +66,7 @@ swap-cw:
 
 # Swap the position of the currently focused window with the main window in the list.
 swap-main:
-  mod: mod2
+  mod: mod1
   key: enter
 
 # Select tall layout
@@ -87,18 +86,19 @@ select-floating-layout:
 
 # Move the currently focused window to the space to the left.
 throw-space-left:
-  mod: mod2
+  mod: mod1
   key: left
 
 # Move currently the focused window to the space to the right.
 throw-space-right:
-  mod: mod2
+  mod: mod1
   key: right
 
 # Turn on or off tiling entirely.
 toggle-tiling:
   mod: mod1
   key: t
+
 
 # Boolean flag for whether or not to add margins betwen windows (default false).
 window-margins: false
