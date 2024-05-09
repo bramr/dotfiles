@@ -1,188 +1,136 @@
-local fn = vim.fn
-
--- Automatically install packer
-local install_path = fn.stdpath "data" .. "/site/pack/packer/start/packer.nvim"
-if fn.empty(fn.glob(install_path)) > 0 then
-  PACKER_BOOTSTRAP = fn.system {
+-- Bootstrap lazy.nvim
+local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
+if not (vim.uv or vim.loop).fs_stat(lazypath) then
+  vim.fn.system({
     "git",
     "clone",
-    "--depth",
-    "1",
-    "https://github.com/wbthomason/packer.nvim",
-    install_path,
-  }
-  print "Installing packer close and reopen Neovim..."
-  vim.cmd [[packadd packer.nvim]]
+    "--filter=blob:none",
+    "https://github.com/folke/lazy.nvim.git",
+    "--branch=stable", -- latest stable release
+    lazypath,
+  })
 end
+vim.opt.rtp:prepend(lazypath)
 
--- Autocommand that reloads neovim whenever you save the plugins.lua file
-vim.cmd [[
-  augroup packer_user_config
-    autocmd!
-    autocmd BufWritePost plugins.lua source <afile> | PackerSync
-  augroup end
-]]
-
--- Use a protected call so we don't error out on first use
-local status_ok, packer = pcall(require, "packer")
-if not status_ok then
-  return
-end
-
--- Have packer use a popup window
-packer.init {
-  display = {
-    open_fn = function()
-      return require("packer.util").float { border = "rounded" }
-    end,
-  },
-}
-
--- Install your plugins here
-return packer.startup(function(use)
-  -- My plugins here
-  use "wbthomason/packer.nvim" -- Have packer manage itself
-  use "nvim-lua/popup.nvim" -- An implementation of the Popup API from vim in Neovim
-  use "nvim-lua/plenary.nvim" -- Useful lua functions used ny lots of plugins
-
-  -- Fast buffer navigation
-  use 'ggandor/lightspeed.nvim'
-
+-- Load plugins
+require("lazy").setup({
   -- Dark colorschemes
-  use "tomasr/molokai"
-  use "folke/tokyonight.nvim"
-  use "vv9k/vim-github-dark"
+  "tomasr/molokai",
+  "vv9k/vim-github-dark",
+  "folke/tokyonight.nvim",
 
-  -- cmp plugins
-  use "hrsh7th/nvim-cmp" -- The completion plugin
-  use "hrsh7th/cmp-buffer" -- buffer completions
-  use "hrsh7th/cmp-path" -- path completions
-  use "hrsh7th/cmp-cmdline" -- cmdline completions
-  use "saadparwaiz1/cmp_luasnip" -- snippet completions
-  use "hrsh7th/cmp-nvim-lsp" -- LSP completions
-
-  -- snippets
-  use "L3MON4D3/LuaSnip" --snippet engine
-  use "rafamadriz/friendly-snippets" -- a bunch of snippets to use
-
-  -- LSP
-  use "neovim/nvim-lspconfig" -- enable LSP
-  use "williamboman/nvim-lsp-installer" -- simple to use language server installer
-  use "tamago324/nlsp-settings.nvim" -- language server settings defined in json for
-  use "glepnir/lspsaga.nvim"
-  use "folke/trouble.nvim"
-
-  -- Telescope
-  use "nvim-telescope/telescope.nvim"
+  -- Libraries
+  "nvim-lua/popup.nvim",      -- An implementation of the Popup API from vim in Neovim
+  "nvim-lua/plenary.nvim",    -- Useful lua functions used in lots of plugins
+  "nvim-neotest/nvim-nio",    -- Async io library
 
   -- Autopairs
-  use "windwp/nvim-autopairs"
+  "windwp/nvim-autopairs",
 
-  -- Comment
-  use {
-    'numToStr/Comment.nvim',
-    config = function()
-      require('Comment').setup()
-    end
-  }
+  -- Splash screan
+  "goolord/alpha-nvim",
+
+  -- Fast navigation
+  "nvim-telescope/telescope.nvim",
+
+  -- Learning your own keybindings
+  {
+    "folke/which-key.nvim",
+    event = "VeryLazy",
+    init = function()
+      vim.o.timeout = true
+      vim.o.timeoutlen = 300
+    end,
+    opts = {
+    }
+  },
+
+  -- Idiot code completion
+  "github/copilot.vim",
 
   -- Gitsigns
-  use {
+  {
     "lewis6991/gitsigns.nvim",
-    requires = {
+    dependencies = {
       'nvim-lua/plenary.nvim'
     },
     config = function()
       require('gitsigns').setup()
     end
-  }
-
-  -- File tree
-  use {
-    'kyazdani42/nvim-tree.lua',
-    requires = {
-      'kyazdani42/nvim-web-devicons', -- optional, for file icon
-    },
-    config = function() require 'nvim-tree'.setup {} end
-  }
-
-  -- Windline bubble
-  use {
-    "windwp/windline.nvim",
-    config = function()
-      require "wlsample.bubble"
-    end
-  }
-
-  -- Terminal
-  use "akinsho/toggleterm.nvim"
-
-  -- Speed up startup
-  use 'lewis6991/impatient.nvim'
-
+  },
 
   -- Syntax highlighting
-  use {
+  {
     'nvim-treesitter/nvim-treesitter',
-    run = ':TSUpdate'
-  }
-  use 'nickeb96/fish.vim'
+      run = ':TSUpdate'
+  },
 
-  -- Which key
-  use {
-    "folke/which-key.nvim",
-    config = function()
-      require("which-key").setup {
-        -- Custom setup
-      }
-    end
-  }
+  -- cmp plugins
+  "hrsh7th/nvim-cmp", -- The completion plugin
+  "hrsh7th/cmp-buffer", -- buffer completions
+  "hrsh7th/cmp-path", -- path completions
+  "hrsh7th/cmp-cmdline", -- cmdline completions
+  "saadparwaiz1/cmp_luasnip", -- snippet completions
+  "hrsh7th/cmp-nvim-lsp", -- LSP completions
 
-  -- Rust language
-  use {
-    "simrat39/rust-tools.nvim",
-    config = function()
-      require('rust-tools').setup({})
-    end
-  }
-  use "rust-lang/rust.vim"
+  -- snippets
+  "L3MON4D3/LuaSnip", --snippet engine
+  "rafamadriz/friendly-snippets", -- a bunch of snippets to use
 
+  -- LSP
+  "neovim/nvim-lspconfig", -- enable LSP
+  "williamboman/nvim-lsp-installer", -- simple to use language server installer
+  "tamago324/nlsp-settings.nvim", -- language server settings defined in json for
+  "glepnir/lspsaga.nvim",
+  "folke/trouble.nvim",
 
   -- Debugging
-  use "mfussenegger/nvim-dap"
-  use { "rcarriga/nvim-dap-ui",
-    requires = { "mfussenegger/nvim-dap" },
-    config = function()
-      require('dapui').setup()
-    end
-  }
-  --use 'theHamsta/nvim-dap-virtual-text'
-  use {"ray-x/go.nvim",
+  "mfussenegger/nvim-dap",
+  {
+    "rcarriga/nvim-dap-ui",
+      dependencies = { "mfussenegger/nvim-dap" },
+      config = function()
+        require('dapui').setup()
+      end
+  },
+
+  -- Comment
+  {
+    'numToStr/Comment.nvim',
+      config = function()
+        require('Comment').setup()
+      end
+  },
+
+  -- Golang
+  {
+    "ray-x/go.nvim",
       config = function()
         require('go').setup()
       end
-  }
+  },
+
+  -- Windline bubble
+  {
+    "windwp/windline.nvim",
+      config = function()
+        require "wlsample.bubble"
+      end
+  },
+
+  -- File tree
+  {
+    'kyazdani42/nvim-tree.lua',
+      requires = {
+        'kyazdani42/nvim-web-devicons', -- optional, for file icon
+      },
+      config = function() require 'nvim-tree'.setup {} end
+  },
+
+  -- Terminal
+  "akinsho/toggleterm.nvim",
 
   -- Trailing whitespace
-  use "bronson/vim-trailing-whitespace"
+  "bronson/vim-trailing-whitespace"
+})
 
-  -- TodoTXT support
-  use {
-	  'arnarg/todotxt.nvim',
-	  requires = {'MunifTanjim/nui.nvim'},
-      config = function()
-        require('todotxt-nvim').setup({
-          todo_file = "~/.todo.txt",
-        })
-      end
-  }
-
-  -- Splash screan
-  use "goolord/alpha-nvim"
-
-  -- Automatically set up your configuration after cloning packer.nvim
-  -- Put this at the end after all plugins
-  if PACKER_BOOTSTRAP then
-    require("packer").sync()
-  end
-end)

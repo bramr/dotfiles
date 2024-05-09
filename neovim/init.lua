@@ -6,8 +6,8 @@
 --
 
 require "bram.options"
-require "bram.mappings"
 require "bram.plugins"
+require "bram.mappings"
 require "bram.colors"
 require "bram.cmp"
 require "bram.lsp"
@@ -15,4 +15,3 @@ require "bram.telescope"
 require "bram.autopairs"
 require "bram.terminal"
 require "bram.splash"
-require "bram.rust"

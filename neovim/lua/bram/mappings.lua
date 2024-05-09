@@ -7,7 +7,7 @@ local nrx = { noremap = true, expr = true }
 --Remap space as leader key
 map("", "<Space>", "<Nop>", nrs)
 vim.g.mapleader = " "
-vim.g.maplocalleader = " "
+vim.g.maplocalleader = ","
 
 -- Modes
 --   normal_mode = "n",
@@ -52,11 +52,7 @@ map('i', '<S-Tab>', 'pumvisible() ? "\\<C-p>" : "\\<S-Tab>"', nrx)
 map('n', 'z-', '1z=', nr);
 
 -- WhichKey mappings
-local status_ok, wk = pcall(require, "which-key")
-if not status_ok then
-  return
-end
-
+local wk = require("which-key")
 wk.register({
   ['<space>'] = {'<cmd>Telescope find_files<CR>', ' Find files'},
   b = { '<cmd>Telescope buffers<CR>', '󰮗 Find buffer'},
@@ -101,15 +97,6 @@ wk.register({
     x = {[[<cmd>DapTerminate<CR>]], "Terminate"},
     y = {[[<cmd>DapToggleRepl<CR>]], "Toggle repl"},
     w = {[[<cmd>lua require("dapui").toggle()<CR>]], "Toggle UI"}
-  },
-  r = {
-    name = '  Rust',
-    c = {[[<cmd>lua require('rust-tools').open_cargo_toml.open_cargo_toml()<CR>]],"Open cargo.toml"},
-    f = {[[<cmd>RustFmt<CR>]],"Format"},
-    h = {[[<cmd>lua require('rust-tools').hover_actions.hover_actions()<CR>]],"Hover"},
-    p = {[[<cmd>lua require('rust-tools').parent_module.parent_module()<CR>]],"Parent"},
-    r = {[[<cmd>lua require('rust-tools').runnables.runnables()<CR>]],"Runnables"},
-    t = {[[<cmd>RustTest<CR>]],"Run Test"},
   },
   g = {
     name = '  Golang',
