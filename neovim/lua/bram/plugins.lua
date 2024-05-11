@@ -20,18 +20,59 @@ require("lazy").setup({
   "folke/tokyonight.nvim",
 
   -- Libraries
-  "nvim-lua/popup.nvim",      -- An implementation of the Popup API from vim in Neovim
-  "nvim-lua/plenary.nvim",    -- Useful lua functions used in lots of plugins
-  "nvim-neotest/nvim-nio",    -- Async io library
+  "nvim-lua/popup.nvim",          -- An implementation of the Popup API from vim in Neovim
+  "nvim-lua/plenary.nvim",        -- Useful lua functions used in lots of plugins
+  "nvim-neotest/nvim-nio",        -- Async io library
+  "nvim-tree/nvim-web-devicons",  -- Use nerd fonts
 
   -- Autopairs
   "windwp/nvim-autopairs",
+
+  -- Neorg
+  {
+    "vhyrro/luarocks.nvim",
+    priority = 1000,
+    config = true,
+  },
+  {
+    "nvim-neorg/neorg",
+    version = "v7.0.0",
+    dependencies = { "luarocks.nvim" },
+    config = function()
+      require("neorg").setup({
+        load = {
+          ["core.defaults"] = {},
+          ["core.concealer"] = {},
+          ["core.dirman"] = {
+            config = {
+              workspaces = {
+                personal = "~/.notes/personal",
+                work = "~/.notes/work",
+              },
+              index = "index.norg"
+            },
+          },
+        }
+      })
+    end,
+  },
 
   -- Splash screan
   "goolord/alpha-nvim",
 
   -- Fast navigation
   "nvim-telescope/telescope.nvim",
+
+  -- Fast file manipulation
+  {
+    "stevearc/oil.nvim",
+    dependencies = {
+      'nvim-tree/nvim-web-devicons'
+    },
+    config = function()
+      require("oil").setup()
+    end
+  },
 
   -- Learning your own keybindings
   {
@@ -130,7 +171,8 @@ require("lazy").setup({
   -- Terminal
   "akinsho/toggleterm.nvim",
 
-  -- Trailing whitespace
+  -- Formatting/ Trailing whitespace
+  "mhartington/formatter.nvim",
   "bronson/vim-trailing-whitespace"
 })
 
