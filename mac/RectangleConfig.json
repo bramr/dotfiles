@@ -46,6 +46,9 @@
     "curtainChangeSize" : {
       "int" : 0
     },
+    "cycleSizesIsChanged" : {
+      "bool" : false
+    },
     "disabledApps" : {
 
     },
@@ -83,7 +86,10 @@
 
     },
     "gapSize" : {
-      "float" : 0
+      "float" : 2
+    },
+    "hapticFeedbackOnSnap" : {
+      "int" : 0
     },
     "hideMenubarIcon" : {
       "bool" : false
@@ -151,6 +157,12 @@
     "screenEdgeGapTop" : {
       "float" : 0
     },
+    "screenEdgeGapTopNotch" : {
+      "float" : 0
+    },
+    "selectedCycleSizes" : {
+      "int" : 0
+    },
     "shortEdgeSnapAreaSize" : {
       "float" : 145
     },
@@ -185,7 +197,7 @@
       "float" : 1680
     },
     "stageSize" : {
-      "float" : 190
+      "float" : 170.65324
     },
     "subsequentExecutionMode" : {
       "int" : 1
@@ -195,6 +207,9 @@
     },
     "systemWideMouseDown" : {
       "int" : 0
+    },
+    "systemWideMouseDownApps" : {
+
     },
     "todo" : {
       "int" : 0
@@ -222,6 +237,10 @@
     }
   },
   "shortcuts" : {
+    "almostMaximize" : {
+      "keyCode" : 16,
+      "modifierFlags" : 917504
+    },
     "bottomLeft" : {
       "keyCode" : 38,
       "modifierFlags" : 786432
@@ -283,5 +302,5 @@
       "modifierFlags" : 786432
     }
   },
-  "version" : "81"
+  "version" : "88"
 }
