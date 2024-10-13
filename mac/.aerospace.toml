@@ -174,3 +174,25 @@ alt-shift-h = ['join-with left', 'mode main']
 alt-shift-j = ['join-with down', 'mode main']
 alt-shift-k = ['join-with up', 'mode main']
 alt-shift-l = ['join-with right', 'mode main']
+
+# Float hearthstone stuff on workspace G
+[[on-window-detected]]
+if.app-id = 'net.battle.app'
+run = ['layout floating', 'move-node-to-workspace G']
+[[on-window-detected]]
+if.app-id = 'unity.Blizzard Entertainment.Hearthstone'
+run = ['layout floating', 'move-node-to-workspace G']
+[[on-window-detected]]
+if.app-id = 'net.hearthsim.hstracker'
+run = ['layout floating', 'move-node-to-workspace G']
+
+# Move music stuff on workspace S
+[[on-window-detected]]
+if.app-id = 'com.apple.Music'
+run = ['move-node-to-workspace S']
+
+[workspace-to-monitor-force-assignment]
+1 = 'main'
+2 = 'secondary'
+3 = 'built-in'
+S = 'built-in'
