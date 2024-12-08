@@ -1,0 +1,78 @@
+[[mouse.bindings]]
+action = "Copy"
+mouse = "Middle"
+
+[bell]
+animation = "EaseOutCirc"
+color = "#aaaaaa"
+duration = 10
+
+[colors.bright]
+black = "#625e4c"
+blue = "#a684f7"
+cyan = "#58d1eb"
+green = "#98e024"
+magenta = "#fa8419"
+red = "#e54375"
+white = "#f6f6ef"
+yellow = "#eedf54"
+
+[colors.normal]
+black = "#0e0e0e"
+blue = "#a684f7"
+cyan = "#58d1eb"
+green = "#98e024"
+magenta = "#fa8419"
+red = "#e54375"
+white = "#c4c5b5"
+yellow = "#eedf64"
+
+[colors.primary]
+background = "#0a0a0a"
+foreground = "#c4c5b5"
+
+[colors.search.matches]
+background = "#ffffff"
+foreground = "#000000"
+
+[cursor.style]
+blinking = "On"
+shape = "Block"
+
+[env]
+TERM = "xterm-256color"
+TERM_PROGRAM = "alacritty"
+
+[font]
+size = 16.0
+
+[font.bold]
+family = "Hack Nerd Font"
+style = "Bold"
+
+[font.bold_italic]
+family = "Hack Nerd Font"
+style = "Bold Italic"
+
+[font.italic]
+family = "Hack Nerd Font"
+style = "Italic"
+
+[font.normal]
+family = "Hack Nerd Font"
+style = "Regular"
+
+[mouse]
+hide_when_typing = true
+
+[scrolling]
+history = 100000
+multiplier = 3
+
+[window]
+decorations = "buttonless"
+opacity = 0.9
+
+[window.padding]
+x = 2
+y = 2

@@ -16,4 +16,3 @@ fi
 
 # Enable composer global bin
 [ -d "$HOME/.composer/vendor/bin" ] && export PATH="$HOME/.composer/vendor/bin:$PATH"
-. "$HOME/.cargo/env"

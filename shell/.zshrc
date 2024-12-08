@@ -16,7 +16,17 @@ then
   HISTFILE=~/.zsh_history
   HISTSIZE=100000
   SAVEHIST=100000
-  setopt SHARE_HISTORY
+  setopt share_history
+  setopt hist_expire_dups_first
+  setopt hist_ignore_dups
+  setopt hist_verify
+
+  bindkey '^[[A' history-search-backward
+  bindkey '^[[B' history-search-forward
+
+  # Zsh completion
+  [ -f "/opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh" ] && source /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+  [ -f "/opt/homebrew/share/zsh-autocomplete/zsh-autocomplete.plugin.zsh" ] && source /opt/homebrew/share/zsh-autocomplete/zsh-autocomplete.plugin.zsh
 
 elif [ $(basename $SHELL) = "bash" ]
 then

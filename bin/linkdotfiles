@@ -7,19 +7,21 @@ ln -s ~/dotfiles/shell/.bash_profile ~/.bash_profile
 ln -s ~/dotfiles/shell/.zshenv ~/.zshenv
 ln -s ~/dotfiles/shell/.zshrc ~/.zshrc
 ln -s ~/dotfiles/config/.ideavimrc ~/.ideavimrc
+
 mkdir -p ~/.config/alacritty
-ln -s ~/dotfiles/config/alacritty.yml ~/.config/alacritty/alacritty.yml
-ln -s ~/dotfiles/shell/fish ~/.config/fish
+ln -s ~/dotfiles/config/alacritty.toml ~/.config/alacritty/alacritty.toml
+mkdir -p ~/.config/wezterm
+ln -s ~/dotfiles/config/wezterm.lua ~/.config/wezterm/wezterm.lua
+
 ln -s ~/dotfiles/neovim ~/.config/nvim
-ln -s ~/dotfiles/git/gitui ~/.config/gitui
 mkdir ~/.vim
 ln -s ~/dotfiles/vim/.vimrc ~/.vimrc
 
 ## macos stuff
 if [ "$(uname)" == "Darwin" ] ; then
-  mkdir -p ~/Library/Application\ Support/Code/User 
+  mkdir -p ~/Library/Application\ Support/Code/User
+  mkdir -p ~/Library/Application\ Support/Rectangle
   ln -s ~/dotfiles/mac/RectangleConfig.json ~/Library/Application\ Support/Rectangle/
-  mkdir -p ~/Library/Application\ Support/Rectangle 
   ln -s ~/dotfiles/config/vscode/settings.json ~/Library/Application\ Support/Code/User/settings.json
   ln -s ~/dotfiles/mac/.aerospace.toml ~/.aerospace.toml
 fi
