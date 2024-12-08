@@ -35,7 +35,6 @@ cmd 'syntax on' -- syntax highlighting
 
 wo.wrap = false -- Display long lines as just one line
 wo.number = true -- set numbered lines
-wo.relativenumber = true -- set relative number
 wo.cursorline = true -- Enable highlighting of the current line
 wo.signcolumn = "yes" -- Always show the signcolumn, otherwise it would shift the text each time
 

@@ -14,9 +14,7 @@ vim.opt.rtp:prepend(lazypath)
 
 -- Load plugins
 require("lazy").setup({
-  -- Dark colorschemes
-  "tomasr/molokai",
-  "vv9k/vim-github-dark",
+  -- Color scheme
   "folke/tokyonight.nvim",
 
   -- Libraries
@@ -27,35 +25,6 @@ require("lazy").setup({
 
   -- Autopairs
   "windwp/nvim-autopairs",
-
-  -- Neorg
-  {
-    "vhyrro/luarocks.nvim",
-    priority = 1000,
-    config = true,
-  },
-  {
-    "nvim-neorg/neorg",
-    version = "v7.0.0",
-    dependencies = { "luarocks.nvim" },
-    config = function()
-      require("neorg").setup({
-        load = {
-          ["core.defaults"] = {},
-          ["core.concealer"] = {},
-          ["core.dirman"] = {
-            config = {
-              workspaces = {
-                personal = "~/.notes/personal",
-                work = "~/.notes/work",
-              },
-              index = "index.norg"
-            },
-          },
-        }
-      })
-    end,
-  },
 
   -- Splash screan
   "goolord/alpha-nvim",
@@ -106,24 +75,26 @@ require("lazy").setup({
       run = ':TSUpdate'
   },
 
-  -- cmp plugins
-  "hrsh7th/nvim-cmp", -- The completion plugin
-  "hrsh7th/cmp-buffer", -- buffer completions
-  "hrsh7th/cmp-path", -- path completions
-  "hrsh7th/cmp-cmdline", -- cmdline completions
-  "saadparwaiz1/cmp_luasnip", -- snippet completions
-  "hrsh7th/cmp-nvim-lsp", -- LSP completions
 
-  -- snippets
-  "L3MON4D3/LuaSnip", --snippet engine
-  "rafamadriz/friendly-snippets", -- a bunch of snippets to use
+      -- LSP
+  { 'neovim/nvim-lspconfig' },
 
-  -- LSP
-  "neovim/nvim-lspconfig", -- enable LSP
-  "williamboman/nvim-lsp-installer", -- simple to use language server installer
-  "tamago324/nlsp-settings.nvim", -- language server settings defined in json for
-  "glepnir/lspsaga.nvim",
-  "folke/trouble.nvim",
+  -- Autocomplete
+  {
+    'hrsh7th/nvim-cmp',
+    -- load cmp on InsertEnter
+    event = 'InsertEnter',
+    -- these dependencies will only be loaded when cmp loads
+    -- dependencies are always lazy-loaded unless specified otherwise
+    dependencies = {
+      'L3MON4D3/LuaSnip',
+      'hrsh7th/cmp-nvim-lsp',
+      'hrsh7th/cmp-path',
+      'hrsh7th/cmp-buffer',
+      "hrsh7th/cmp-cmdline", -- cmdline completions
+      'saadparwaiz1/cmp_luasnip',
+    },
+  },
 
   -- Debugging
   "mfussenegger/nvim-dap",
