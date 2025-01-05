@@ -12,6 +12,8 @@ mkdir -p ~/.config/alacritty
 ln -s ~/dotfiles/config/alacritty.toml ~/.config/alacritty/alacritty.toml
 mkdir -p ~/.config/wezterm
 ln -s ~/dotfiles/config/wezterm.lua ~/.config/wezterm/wezterm.lua
+mkdir -p ~/.config/ghostty
+ln -s ~/dotfiles/config/ghostty/config ~/.config/ghostty/config
 
 ln -s ~/dotfiles/neovim ~/.config/nvim
 mkdir ~/.vim

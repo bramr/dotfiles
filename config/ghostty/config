@@ -1,0 +1,24 @@
+theme = tokyonight
+font-size = 17
+font-family = Hack Nerd Font Mono
+font-feature = -liga
+
+macos-titlebar-style = hidden
+mouse-hide-while-typing = true
+window-decoration = true
+window-colorspace = display-p3
+
+background-opacity = 0.94
+background-blur-radius = 10
+
+keybind = cmd+shift+space=toggle_quick_terminal
+
+cursor-style = block
+cursor-style-blink = true
+shell-integration-features = no-cursor
+cursor-color = #FF5F87
+
+keybind = cmd+w=text:\x01x
+keybind = cmd+t=text:\x01c
+keybind = cmd+shift+]=text:\x01n
+keybind = cmd+shift+[=text:\x01p
