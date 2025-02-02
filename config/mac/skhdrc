@@ -1,7 +1,9 @@
-cmd + shift - return : alacritty
-cmd + shift - 9 : limelight
-cmd + shift - 0 : killall limelight
-cmd + shift - y : open -n -a "Finder.app"
-cmd + shift - w : open -n -a "Brave Browser.app"
-cmd + shift - r : open -n -a "Firefox.app"
-cmd + shift - i : open -a "IntelliJ IDEA.app"
+
+alt - w : open /Applications/Obsidian.app
+alt - g : open /Applications/Ghostty.app
+alt - s : open -a music
+alt - f : open /Applications/Firefox.app
+alt - d : open /Applications/IntelliJ IDEA.app
+alt - z : open /Applications/Hearthstone/Hearthstone.app
+alt - x : open -a finder
+

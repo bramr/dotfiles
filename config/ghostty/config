@@ -3,7 +3,7 @@ font-size = 17
 font-family = Hack Nerd Font Mono
 font-feature = -liga
 
-macos-titlebar-style = hidden
+macos-titlebar-style = transparent
 mouse-hide-while-typing = true
 window-decoration = true
 window-colorspace = display-p3
