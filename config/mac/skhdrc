@@ -1,9 +1,30 @@
-
+alt - q : open /Applications/Postman.app
 alt - w : open /Applications/Obsidian.app
-alt - g : open /Applications/Ghostty.app
+alt - e : open /Applications/pwSafe.app
+alt - r : open /Applications/Rider.app
+alt - t : open -a "LM Studio"
+
+alt - a : open /Applications/LM Studio.app
 alt - s : open -a music
 alt - f : open /Applications/Firefox.app
-alt - d : open /Applications/IntelliJ IDEA.app
+alt - d : open /Applications/IntelliJ\ IDEA.app
+alt - g : open /Applications/Ghostty.app
+
 alt - z : open /Applications/Hearthstone/Hearthstone.app
 alt - x : open -a finder
+alt - c : open -a "Microsoft Teams"
+alt - v : open -a "Microsoft Outlook"
+alt - b : open /Applications/Mail.app
 
+
+alt - h : open -g "rectangle://execute-action?name=left-half"
+alt - y : open -g "rectangle://execute-action?name=first-two-thirds"
+
+alt - j : open -g "rectangle://execute-action?name=maximize"
+alt - k : open -g "rectangle://execute-action?name=almost-maximize"
+
+alt - o : open -g "rectangle://execute-action?name=last-third"
+alt - l : open -g "rectangle://execute-action?name=right-half"
+
+alt - n : open -g "rectangle://execute-action?name=previous-display"
+alt - m : open -g "rectangle://execute-action?name=next-display"
