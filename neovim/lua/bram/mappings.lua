@@ -48,6 +48,13 @@ map('n', '+', 'gg=G<CR>gi', nrs) -- reformat buffer
 map('i', '<Tab>',  'pumvisible() ? "\\<C-n>" : "\\<Tab>"', nrx)
 map('i', '<S-Tab>', 'pumvisible() ? "\\<C-p>" : "\\<S-Tab>"', nrx)
 
+map('i', '<C-J>', 'copilot#Accept("\\<CR>")', {
+  expr = true,
+  replace_keycodes = false
+})
+vim.g.copilot_no_tab_map = true
+
+
 -- Spelling
 map('n', 'z-', '1z=', nr);
 
