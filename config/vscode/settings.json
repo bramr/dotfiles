@@ -13,7 +13,7 @@
     "editor.tabSize": 2,
     "editor.formatOnSave": true,
     "editor.codeActionsOnSave": {
-      "source.organizeImports": true
+        "source.organizeImports": "explicit"
     }
   },
   "[shellscript]": {
@@ -58,5 +58,7 @@
   "telemetry.telemetryLevel": "off",
   "[jsonc]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
-  }
+},
+"settingsSync.keybindingsPerPlatform": false,
+"dotnetAcquisitionExtension.enableTelemetry": false
 }

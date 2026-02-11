@@ -16,3 +16,6 @@ fi
 
 # Enable composer global bin
 [ -d "$HOME/.composer/vendor/bin" ] && export PATH="$HOME/.composer/vendor/bin:$PATH"
+
+export COLIMA_HOME=/Volumes/owc/data/colima/
+export OLLAMA_MODELS=/Volumes/owc/data/ollama/models/

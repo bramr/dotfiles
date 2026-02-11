@@ -18,10 +18,8 @@
 	default = current
 [user]
 	name = Bram Rohde
-	email = bram@br4m.nl
-[difftool "sourcetree"]
-	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
-	path = 
-[mergetool "sourcetree"]
-	cmd = /Applications/Sourcetree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
-	trustExitCode = true
+  email = bram@br4m.nl
+[includeIf "gitdir:/Users/bram/Developer/radboud/"]
+  path = /Users/bram/Developer/radboud/.gitconfig
+[init]
+	defaultBranch = main

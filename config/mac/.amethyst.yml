@@ -1,7 +1,7 @@
 layouts:
   - floating
-  - tall
   - fullscreen
+  - tall
 
 mod1:
   - option
@@ -130,6 +130,6 @@ smart-window-margins: true
 window-margin-size: 2
 
 # On external screens add padding for sketchybar
-screen-padding-top: 32
+# screen-padding-top: 27
 disable-padding-on-builtin-display: true
 

@@ -6,15 +6,15 @@ alt - t : open -a "LM Studio"
 
 alt - a : open /Applications/LM Studio.app
 alt - s : open -a music
-alt - f : open /Applications/Firefox.app
+alt - f : open -a zen
 alt - d : open /Applications/IntelliJ\ IDEA.app
 alt - g : open /Applications/Ghostty.app
 
 alt - z : open /Applications/Hearthstone/Hearthstone.app
-alt - x : open -a finder
+alt - x : open -a Xcode
 alt - c : open -a "Microsoft Teams"
 alt - v : open -a "Microsoft Outlook"
-alt - b : open /Applications/Mail.app
+alt - b : open -a finder
 
 
 alt - h : open -g "rectangle://execute-action?name=left-half"
@@ -28,3 +28,8 @@ alt - l : open -g "rectangle://execute-action?name=right-half"
 
 alt - n : open -g "rectangle://execute-action?name=previous-display"
 alt - m : open -g "rectangle://execute-action?name=next-display"
+
+alt - u : open -g "throw://lefta"
+alt - i : open -g "throw://right"
+
+alt - p : open -g "throw://next-screen"

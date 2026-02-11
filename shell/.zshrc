@@ -143,3 +143,7 @@ then
     figlet  -f ~/dotfiles/shell/invita.flf "$(basename $SHELL)" | lolcat ||
     echo "👾👾👾 $(basename $SHELL) config loaded 👾👾👾"
 fi
+export PATH="/opt/homebrew/opt/dotnet@8/bin:$PATH"
+
+# Added by LM Studio CLI (lms)
+export PATH="$PATH:/Users/bram/.lmstudio/bin"
