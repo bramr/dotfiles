@@ -77,6 +77,20 @@ vim.api.nvim_create_autocmd('LspAttach', {
   end,
 })
 
+local function toggle_loclist_diagnostics()
+  -- Check if a location list window is already open
+  for _, win in ipairs(vim.fn.getwininfo()) do
+    if win.loclist == 1 and win.bufnr == vim.api.nvim_get_current_buf() then
+      vim.cmd("lclose")
+      return
+    end
+  end
+
+  -- Otherwise populate and open it
+  vim.diagnostic.setloclist()
+  vim.cmd("lopen")
+end
+
 -- WhichKey mappings
 local wk = require("which-key")
 
@@ -86,7 +100,7 @@ wk.add({
   { '<leader><space>', '<cmd>Telescope find_files<cr>', desc=' Find files'},
   { '<leader>b', '<cmd>Telescope buffers<cr>', desc='󰮗 Find buffer'},
   { '<leader>e', '<cmd>NvimTreeToggle<cr>', desc='󰙅 Explorer'},
-  { '<leader>p', '<cmd>lua vim.diagnostic.setqflist()<cr>', desc=' Show problems'},
+  { '<leader>p', toggle_loclist_diagnostics, desc=' Show problems'},
   { '<leader>t', '<cmd>ToggleTerm size=24 direction=horizontal<cr>', desc=' Terminal'},
 
   { '<leader>s', desc='󰓆 Spelling'},
@@ -96,11 +110,15 @@ wk.add({
 
   { '<leader>f', desc=' Find'},
   { '<leader>ff', '<cmd>Telescope find_files find_command=rg,--ignore,--hidden,--files prompt_prefix=.> <cr>', desc=' Files (including hidden)'},
-  { '<leader>fg', [[<cmd>lua require('telescope.builtin').live_grep()<cr>]], desc=' Grep'},
-  { '<leader>fp', [[<cmd>lua require('telescope.builtin').diagnostics()<cr>]], desc=' Find problems'},
+  { '<leader>fb', [[<cmd>lua require('telescope.builtin').git_branches()<cr>]], desc=' Git branches'},
   { '<leader>fc', [[<cmd>lua require('telescope.builtin').git_commits()<cr>]], desc=' Git commits'},
   { '<leader>fg', [[<cmd>lua require('telescope.builtin').git_files()<cr>]], desc=' Git files'},
   { '<leader>fh', [[<cmd>lua require('telescope.builtin').help_tags()<CR>]], desc=' Help tags'},
+  { '<leader>fl', [[<cmd>lua require('telescope.builtin').lsp_references()<cr>]], desc=' LSP references'},
+  { '<leader>fp', [[<cmd>lua require('telescope.builtin').diagnostics()<cr>]], desc=' Find problems'},
+  { '<leader>fr', [[<cmd>lua require('telescope.builtin').registers<cr>]], desc=' Registers'},
+  { '<leader>fs', [[<cmd>lua require('telescope.builtin').spell_suggest<cr>]], desc=' Spelling suggestions'},
+  { '<leader>ft', [[<cmd>lua require('telescope.builtin').live_grep()<cr>]], desc=' Live grep'},
 
   { '<leader>z', desc=' Misc'},
   { '<leader>ze', '<cmd>view ~/dotfiles/misc/emoji.txt<cr>', desc=' Emoji cheat sheet'},

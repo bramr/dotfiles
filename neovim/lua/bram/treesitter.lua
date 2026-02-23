@@ -4,7 +4,13 @@ if not status_ok then
 end
 
 configs.setup {
-  ensure_installed = "maintained", -- one of "all", "maintained" (parsers with maintainers), or a list of languages
+  ensure_installed = {"bash", "c", "c_sharp", "css", "csv", "diff", "dockerfile",
+    "git_config", "git_rebase", "gitattributes", "gitcommit", "gitignore",
+    "go", "gomod", "gosum", "html", "http", "java", "javadoc", "javascript",
+    "json", "jsonc", "lua", "markdown", "markdown_inline", "nginx","php",
+    "python", "regex", "rust", "scss", "sql", "toml", "tmux", "tsx", "twig",
+    "typescript", "vim", "vimdoc", "vue", "xml", "yaml", "zig"
+  }, -- one of "all", "maintained" (parsers with maintainers), or a list of languages
   sync_install = false, -- install languages synchronously (only applied to `ensure_installed`)
   ignore_install = { "" }, -- List of parsers to ignore installing
   highlight = {

@@ -1,7 +1,7 @@
 
 
 require("mason-lspconfig").setup {
-  ensure_installed = { "lua_ls", "gopls" }
+  ensure_installed = { "lua_ls", "gopls", "pyright" }
 }
 
 
@@ -14,4 +14,13 @@ vim.lsp.config("lua_ls", {
       }
     }
   }
+})
+
+vim.diagnostic.config({
+  virtual_text = false,
+  virtual_lines = true,
+  float = {
+    source = "always",
+    border = "rounded",
+  },
 })

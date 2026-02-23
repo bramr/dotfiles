@@ -10,3 +10,6 @@ Thumbs.db
 .phpcomplete_extended/
 tags
 .idea/
+
+.env
+http-client.private.env.json
