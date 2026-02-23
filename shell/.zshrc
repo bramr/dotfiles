@@ -28,6 +28,11 @@ then
   [ -f "/opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh" ] && source /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
   [ -f "/opt/homebrew/share/zsh-autocomplete/zsh-autocomplete.plugin.zsh" ] && source /opt/homebrew/share/zsh-autocomplete/zsh-autocomplete.plugin.zsh
 
+  autoload -Uz compinit
+  compinit
+  bindkey '^I' expand-or-complete
+  zstyle ':completion:*' insert-unambiguous true
+
 elif [ $(basename $SHELL) = "bash" ]
 then
   . ~/dotfiles/shell/git-prompt.sh
