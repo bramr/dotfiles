@@ -33,3 +33,9 @@ alt - u : open -g "throw://lefta"
 alt - i : open -g "throw://right"
 
 alt - p : open -g "throw://next-screen"
+
+alt - 1 : move_to_space 1 --hold 200 --wait 350 --key 45
+alt - 2 : move_to_space 2 --hold 200 --wait 350 --key 45
+alt - 3 : move_to_space 3 --hold 200 --wait 350 --key 45
+alt - 4 : move_to_space 4 --hold 200 --wait 350 --key 45
+alt - 5 : move_to_space 5 --hold 200 --wait 350 --key 45

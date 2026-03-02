@@ -3,11 +3,15 @@ font-size = 16
 font-family = Hack Nerd Font Mono
 font-feature = -liga
 
+macos-titlebar-proxy-icon = hidden
 macos-titlebar-style = transparent
+macos-window-buttons = hidden
+
 mouse-hide-while-typing = true
-window-decoration = true
+window-decoration = auto
 window-colorspace = display-p3
 
+# Transparency settings
 # background-opacity = 0.94
 # background-blur-radius = 10
 
