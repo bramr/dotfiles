@@ -77,7 +77,7 @@ alias emoji="$EDITOR ~/dotfiles/misc/emoji.txt"
 
 # Youtube
 [ -x "$(command -v yt-dlp)" ] \
-  && alias yt="yt-dlp -f 'bestvideo[ext=mp4]+bestaudio[ext=m4a]/best[ext=mp4]/best' " \
+  && alias yt="yt-dlp" \
   && alias ytf="yt-dlp -F " \
   && alias yta="yt-dlp -f bestaudio -x --audio-format mp3 --audio-quality 3 "
 

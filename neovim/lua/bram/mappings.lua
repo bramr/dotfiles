@@ -26,10 +26,11 @@ map('n', '<Tab>', ':tabnext<CR>', nr)
 map('n', '<S-Tab>', ':tabprevious<CR>', nr)
 
 -- Better window navigation
-map("n", "<C-h>", "<C-w>h", nr)
-map("n", "<C-j>", "<C-w>j", nr)
-map("n", "<C-k>", "<C-w>k", nr)
-map("n", "<C-l>", "<C-w>l", nr)
+-- Temporarily free up for copilot.
+-- map("n", "<C-h>", "<C-w>h", nr)
+-- map("n", "<C-j>", "<C-w>j", nr)
+-- map("n", "<C-k>", "<C-w>k", nr)
+-- map("n", "<C-l>", "<C-w>l", nr)
 
 -- Navigate buffers
 map("n", "<S-l>", ":bnext<CR>", nrs)
@@ -41,18 +42,15 @@ map("v", ">", ">gv", nrs)
 
 map('n', '+', 'gg=G<CR>gi', nrs) -- reformat buffer
 
--- map('n', '<C-u>', [[<cmd>lua require('lspsaga.action').smart_scroll_with_saga(1)<CR>]], nrs)
--- map('n', '<C-i>', [[<cmd>lua require('lspsaga.action').smart_scroll_with_saga(-1)<CR>]], nrs)
-
 -- Completion
 map('i', '<Tab>',  'pumvisible() ? "\\<C-n>" : "\\<Tab>"', nrx)
 map('i', '<S-Tab>', 'pumvisible() ? "\\<C-p>" : "\\<S-Tab>"', nrx)
 
-map('i', '<C-J>', 'copilot#Accept("\\<CR>")', {
-  expr = true,
-  replace_keycodes = false
-})
-vim.g.copilot_no_tab_map = true
+-- map('i', '<C-J>', 'copilot#Accept("\\<CR>")', {
+--   expr = true,
+--   replace_keycodes = false
+-- })
+-- vim.g.copilot_no_tab_map = true
 
 
 -- Spelling
@@ -71,9 +69,9 @@ vim.api.nvim_create_autocmd('LspAttach', {
     vim.keymap.set('n', 'go', '<cmd>lua vim.lsp.buf.type_definition()<cr>', opts)
     vim.keymap.set('n', 'gr', '<cmd>lua vim.lsp.buf.references()<cr>', opts)
     vim.keymap.set('n', 'gs', '<cmd>lua vim.lsp.buf.signature_help()<cr>', opts)
-    vim.keymap.set('n', '<leader>rn', '<cmd>lua vim.lsp.buf.rename()<cr>', opts)
-    vim.keymap.set({'n', 'x'}, '<leader>rf', '<cmd>lua vim.lsp.buf.format({async = true})<cr>', opts)
     vim.keymap.set('n', '<leader>ca', '<cmd>lua vim.lsp.buf.code_action()<cr>', opts)
+    vim.keymap.set('n', '<leader>cn', '<cmd>lua vim.lsp.buf.rename()<cr>', opts)
+    vim.keymap.set({'n', 'x'}, '<leader>cf', '<cmd>lua vim.lsp.buf.format({async = true})<cr>', opts)
   end,
 })
 
@@ -95,13 +93,27 @@ end
 local wk = require("which-key")
 
 wk.add({
-  { '<leader>o', '<cmd>Oil<cr>', desc= '󰏇 Oil'},
+  { '<leader>O', '<cmd>Oil<cr>', desc= '󰏇 Oil'},
   { '<leader>v', '<cmd>vsplit<cr>', desc=' Split vertical'},
   { '<leader><space>', '<cmd>Telescope find_files<cr>', desc=' Find files'},
   { '<leader>b', '<cmd>Telescope buffers<cr>', desc='󰮗 Find buffer'},
   { '<leader>e', '<cmd>NvimTreeToggle<cr>', desc='󰙅 Explorer'},
   { '<leader>p', toggle_loclist_diagnostics, desc=' Show problems'},
   { '<leader>t', '<cmd>ToggleTerm size=24 direction=horizontal<cr>', desc=' Terminal'},
+
+  { '<leader>o', desc=' Obsidian'},
+  { '<leader>oa', [[<cmd>Obsidian tags<cr>]], desc=' Tags in note'},
+  { '<leader>oe', [[<cmd>Obsidian template<cr>]], desc=' Template'},
+  { '<leader>oc', [[<cmd>Obsidian toc<cr>]], desc=' Table of content'},
+  { '<leader>of', [[<cmd>Obsidian search<cr>]], desc=' Find in Obsidian'},
+  { '<leader>ol', [[<cmd>Obsidian links<cr>]], desc=' Links in note'},
+  { '<leader>oo', [[<cmd>Obsidian<cr>]], desc=' List commands'},
+  { '<leader>op', [[<cmd>Obsidian paste_img<cr>]], desc=' Past image from clipboard'},
+  { '<leader>oq', [[<cmd>Obsidian quick_switch<cr>]], desc='󰓤 Quick switch'},
+  { '<leader>on', [[<cmd>Obsidian new<cr>]], desc=' New note'},
+  { '<leader>ot', [[<cmd>Obsidian today<cr>]], desc='󰃶 Today note'},
+  { '<leader>ow', [[<cmd>Obsidian tommorow<cr>]], desc='󰃳 TommoroW note'},
+  { '<leader>oy', [[<cmd>Obsidian yesterday<cr>]], desc='󰵜 Yesterday note'},
 
   { '<leader>s', desc='󰓆 Spelling'},
   { '<leader>se', '<cmd>setlocal spell spelllang=en_us<cr>', desc='󰓆 English (US)'},
@@ -115,16 +127,20 @@ wk.add({
   { '<leader>fg', [[<cmd>lua require('telescope.builtin').git_files()<cr>]], desc=' Git files'},
   { '<leader>fh', [[<cmd>lua require('telescope.builtin').help_tags()<CR>]], desc=' Help tags'},
   { '<leader>fl', [[<cmd>lua require('telescope.builtin').lsp_references()<cr>]], desc=' LSP references'},
+  { '<leader>fo', [[<cmd>Obsidian search<cr>]], desc=' Find in Obsidian'},
   { '<leader>fp', [[<cmd>lua require('telescope.builtin').diagnostics()<cr>]], desc=' Find problems'},
   { '<leader>fr', [[<cmd>lua require('telescope.builtin').registers<cr>]], desc=' Registers'},
   { '<leader>fs', [[<cmd>lua require('telescope.builtin').spell_suggest<cr>]], desc=' Spelling suggestions'},
   { '<leader>ft', [[<cmd>lua require('telescope.builtin').live_grep()<cr>]], desc=' Live grep'},
 
   { '<leader>z', desc=' Misc'},
+  { '<leader>zc', '<cmd>Copilot! attach<cr>', desc=' Copilot force attach'},
   { '<leader>ze', '<cmd>view ~/dotfiles/misc/emoji.txt<cr>', desc=' Emoji cheat sheet'},
   { '<leader>zg', '<cmd>lua _LAZYGIT_TOGGLE()<cr>', desc=' Lazygit'},
   { '<leader>zh', '<cmd>lua _HTOP_TOGGLE()<cr>', desc=' Htop'},
   { '<leader>zm', '<cmd>view ~/dotfiles/misc/markdown.md<cr>', desc=' Markdown cheat sheet'},
+  { '<leader>zn', '<cmd>view ~/dotfiles/misc/nerd.txt<cr>', desc=' Nerdfonts cheat sheet'},
+  { '<leader>zr', '<cmd>%s/\\s\\+$//e | update<cr>', desc='󱎃 Remove trailing whitespace'},
   { '<leader>zs', '<cmd>w !sudo tee %<cr>', desc='󰯙 sudo write'},
   { '<leader>zt', '<cmd>ToggleTerm direction=float<cr>', desc=' Terminal'},
 

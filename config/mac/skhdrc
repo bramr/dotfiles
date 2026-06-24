@@ -29,10 +29,10 @@ alt - l : open -g "rectangle://execute-action?name=right-half"
 alt - n : open -g "rectangle://execute-action?name=previous-display"
 alt - m : open -g "rectangle://execute-action?name=next-display"
 
-alt - u : open -g "throw://lefta"
-alt - i : open -g "throw://right"
+#alt - u : open -g "throw://lefta"
+#alt - i : open -g "throw://right"
 
-alt - p : open -g "throw://next-screen"
+#alt - p : open -g "throw://next-screen"
 
 alt - 1 : move_to_space 1 --hold 200 --wait 350 --key 45
 alt - 2 : move_to_space 2 --hold 200 --wait 350 --key 45

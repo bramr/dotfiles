@@ -106,9 +106,8 @@ else
   bindkey '^R' history-incremental-search-backward
 fi
 
-# Cargo
-[ -x "$(command -v cargo)" ] \
-  && source "$HOME/.cargo/env"
+# Cargo path
+[ -d "$HOME/.cargo/bin" ] && export PATH="$PATH:$HOME/.cargo/bin"
 
 # LM Studio CLI
 [ -d "$HOME/.lmstudio/bin" ] && export PATH="$PATH:$HOME/.lmstudio/bin"
@@ -140,3 +139,6 @@ then
     figlet  -f ~/dotfiles/shell/invita.flf "$(basename $SHELL)" | lolcat ||
     echo "👾👾👾 $(basename $SHELL) config loaded 👾👾👾"
 fi
+
+# smolvm
+export PATH="/Users/bram/.local/bin:$PATH"

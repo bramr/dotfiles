@@ -12,7 +12,7 @@ defaults write -g AppleAccentColor -int 3
 defaults write NSGlobalDomain AppleHighlightColor -string "0.752900 0.964700 0.678400 1.000000"
 
 # Speed up Mission Control animations
-defaults write com.apple.dock expose-animation-duration -float 0.1
+defaults write com.apple.dock expose-animation-duration -float 0.01
 
 # Disable automatic capitalization as it’s annoying when typing code
 defaults write NSGlobalDomain NSAutomaticCapitalizationEnabled -bool false

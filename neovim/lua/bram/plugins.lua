@@ -85,7 +85,47 @@ require("lazy").setup({
   },
 
   -- Idiot code completion
-  "github/copilot.vim",
+  {
+    "zbirenbaum/copilot.lua",
+    cmd = "Copilot",
+    event = "InsertEnter",
+    config = function()
+      require("copilot").setup({
+        filetypes = {
+          -- only allow specific filetype
+          csharp = true,
+          java = true,
+          lua = true,
+          rust = true,
+          ["*"] = false,
+          -- disable for env files
+          sh = function()
+            return not string.match(vim.fs.basename(vim.api.nvim_buf_get_name(0)), "^%.env")
+          end,
+        },
+        suggestion = {
+          enabled = true,
+          auto_trigger = true,
+          keymap = {
+            accept = "<C-j>",
+            accept_word = false,
+            accept_line = false,
+            next = "<C-l>",
+            prev = false,
+            dismiss = "<C-h>",
+            toggle_auto_trigger = false,
+          },
+        },
+        panel = {
+          enabled = true,
+        },
+      })
+    end,
+    dependencies = {
+        "copilotlsp-nvim/copilot-lsp", -- (optional) for NES functionality
+    },
+
+  },
 
   -- Gitsigns
   {
@@ -123,6 +163,17 @@ require("lazy").setup({
       "hrsh7th/cmp-cmdline", -- cmdline completions
       'saadparwaiz1/cmp_luasnip',
     },
+  },
+
+  -- Rust
+  {
+    'mrcjkb/rustaceanvim',
+    -- To avoid being surprised by breaking changes,
+    -- I recommend you set a version range
+    version = '^9',
+    -- This plugin implements proper lazy-loading (see :h lua-plugin-lazy).
+    -- No need for lazy.nvim to lazy-load it.
+    lazy = false,
   },
 
   -- Debugging
@@ -183,8 +234,37 @@ require("lazy").setup({
   -- Terminal
   "akinsho/toggleterm.nvim",
 
+  -- Formatters/Linters
+  {
+    'creativenull/efmls-configs-nvim',
+    version = 'v1.11.1'
+  },
+  {
+  "obsidian-nvim/obsidian.nvim",
+  version = "*", -- use latest release, remove to use latest commit
+    ---@module 'obsidian'
+    ---@type obsidian.config
+    opts = {
+      legacy_commands = false,
+      workspaces = {
+        {
+          name = "Notes",
+          path = "~/Notes",
+        },
+      },
+    },
+  },
+  -- Fancy cursor and smooth scrolling
+  {
+  "sphamba/smear-cursor.nvim",
+    opts = {},
+  },
+  {
+  "karb94/neoscroll.nvim",
+    opts = {},
+  },
+
   -- Formatting/ Trailing whitespace
-  "mhartington/formatter.nvim",
   "bronson/vim-trailing-whitespace"
 })
 
