@@ -252,6 +252,18 @@ require("lazy").setup({
           path = "~/Notes",
         },
       },
+      daily_notes = {
+        enabled = true,
+        folder = "Daily",
+        date_format = "YYYY-MM-DD",
+        default_tags = { "daily"},
+        template = {"daily"},
+      },
+      templates = {
+        folder = "Template",
+        date_format = "%Y-%m-%d-%a",
+        time_format = "%H:%M",
+      }
     },
   },
   -- Fancy cursor and smooth scrolling
